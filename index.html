@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLOOM</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { background: #0a0a0a; color: #fff; font-family: system-ui; }
+  .card { transition: all 0.3s; }
+  .card:hover { transform: scale(1.05); }
+</style>
+</head>
+<body class="p-6 max-w-5xl mx-auto">
+  <h1 class="text-6xl font-bold tracking-tighter mb-2">BLOOM</h1>
+  <p class="text-pink-500 mb-8">Private Solo Female Anal Gape Vault</p>
+
+  <div class="flex gap-4 mb-8">
+    <button onclick="document.getElementById('upload').click()" class="flex-1 bg-white text-black py-5 rounded-3xl text-lg font-medium">📤 BULK IMPORT</button>
+    <button onclick="surpriseMe()" class="flex-1 bg-pink-600 py-5 rounded-3xl text-lg font-medium">🎲 SURPRISE ME</button>
+  </div>
+
+  <input type="file" id="upload" multiple accept="image/*,video/*" class="hidden" onchange="handleUpload(event)">
+
+  <div id="gallery" class="grid grid-cols-2 md:grid-cols-3 gap-6"></div>
+
+  <script>
+    let library = JSON.parse(localStorage.getItem('bloomLibrary')) || [];
+
+    function saveLibrary() {
+      localStorage.setItem('bloomLibrary', JSON.stringify(library));
+    }
+
+    function renderGallery() {
+      const gallery = document.getElementById('gallery');
+      gallery.innerHTML = '';
+      library.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer border border-zinc-700';
+        div.innerHTML = `<img src="${item.url}" class="w-full aspect-video object-cover">`;
+        div.onclick = () => alert(`Bloom Score: ${item.score}\n\n${item.name}`);
+        gallery.appendChild(div);
+      });
+    }
+
+    function handleUpload(e) {
+      Array.from(e.target.files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = ev => {
+          library.unshift({
+            url: ev.target.result,
+            name: file.name,
+            score: Math.floor(Math.random() * 25) + 75
+          });
+          saveLibrary();
+          renderGallery();
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function surpriseMe() {
+      if (library.length === 0) return alert("প্রথমে BULK IMPORT করে কিছু ছবি যোগ করো");
+      const random = library[Math.floor(Math.random() * library.length)];
+      alert(`SURPRISE ME\n\n${random.name}\nBloom Score: ${random.score}`);
+    }
+
+    window.onload = renderGallery;
+  </script>
+</body>
+</html>
