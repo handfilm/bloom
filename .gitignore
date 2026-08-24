@@ -1,6 +1,0 @@
-node_modules/
-android/app/build/
-android/.gradle/
-out/
-.next/
-*.log
