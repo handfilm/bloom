@@ -20,11 +20,11 @@
       if (offset < -n / 2) offset += n;
 
       const abs = Math.abs(offset);
-      const x = offset * 220;              // horizontal spacing
-      const z = -abs * 260;                 // recede into the scene
-      const rotY = offset * -28;            // 3D turn
-      const scale = abs === 0 ? 1 : 0.78;
-      const opacity = abs > 2 ? 0 : (abs === 0 ? 1 : 0.45);
+      const x = offset * 460;               // horizontal spacing (wide, full-bleed hero)
+      const z = -abs * 320;                  // recede into the scene
+      const rotY = offset * -24;             // 3D turn
+      const scale = abs === 0 ? 1 : 0.82;
+      const opacity = abs > 2 ? 0 : (abs === 0 ? 1 : 0.4);
 
       item.style.transform =
         `translateX(-50%) translateX(${x}px) translateZ(${z}px) rotateY(${rotY}deg) scale(${scale})`;
