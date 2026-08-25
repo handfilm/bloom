@@ -20,17 +20,18 @@
       if (offset < -n / 2) offset += n;
 
       const abs = Math.abs(offset);
-      const x = offset * 460;               // horizontal spacing (wide, full-bleed hero)
-      const z = -abs * 320;                  // recede into the scene
-      const rotY = offset * -24;             // 3D turn
-      const scale = abs === 0 ? 1 : 0.82;
-      const opacity = abs > 2 ? 0 : (abs === 0 ? 1 : 0.4);
+      const x = offset * 620;               // horizontal spacing (wide-screen landscape hero)
+      const z = -abs * 360;                  // recede into the scene
+      const rotY = offset * -20;             // 3D turn
+      const scale = abs === 0 ? 1 : 0.86;
+      const opacity = abs > 2 ? 0 : (abs === 0 ? 1 : 0.5);
 
+      // base anchor centers the item on both axes; landscape frame keeps full photo visible
       item.style.transform =
-        `translateX(-50%) translateX(${x}px) translateZ(${z}px) rotateY(${rotY}deg) scale(${scale})`;
+        `translate(-50%, -50%) translateX(${x}px) translateZ(${z}px) rotateY(${rotY}deg) scale(${scale})`;
       item.style.opacity = opacity;
       item.style.zIndex = String(100 - abs);
-      item.style.filter = abs === 0 ? "brightness(1)" : "brightness(0.55)";
+      item.style.filter = abs === 0 ? "brightness(1)" : "brightness(0.65)";
       item.style.pointerEvents = abs === 0 ? "auto" : "none";
     });
   }
