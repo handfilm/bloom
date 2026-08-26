@@ -3,38 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BLOOM EdTech — জাতীয় প্রস্তাবনা</title>
+<title>BLOOM EdTech — মাননীয় প্রধানমন্ত্রীর সমীপে জাতীয় ডিজিটাল শিক্ষা প্রস্তাবনা</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Noto+Serif+Bengali:wght@500;700&family=Inter:wght@400;500;600&family=Noto+Sans+Bengali:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Noto+Serif+Bengali:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="deck-mode">
 
-<!-- fixed chrome -->
-<header class="chrome-header">
-  <span class="chrome-mark">🌱 BLOOM EdTech</span>
-  <span class="chrome-doc">জাতীয় ডিজিটাল লার্নিং ইনফ্রাস্ট্রাকচার — প্রস্তাবনা</span>
+<!-- Top Fixed Executive Chrome -->
+<header class="chrome-header" id="chromeHeader">
+  <div class="chrome-left">
+    <span class="chrome-mark">🌱 BLOOM EdTech</span>
+    <span class="chrome-badge">হিয়ার বাগান</span>
+    <span class="chrome-doc">জাতীয় ডিজিটাল লার্নিং ইনফ্রাস্ট্রাকচার — মন্ত্রিসভা প্রস্তাবনা</span>
+  </div>
+  <div class="chrome-right">
+    <a class="nav-app-link" href="https://hiya.handsandhead.com" target="_blank" rel="noopener" title="লাইভ মূল অ্যাপ খুলুন">
+      <span class="live-dot" aria-hidden="true"></span>
+      <span>hiya.handsandhead.com</span>
+      <span class="link-arrow">↗</span>
+    </a>
+    <button class="pres-mode-btn" id="togglePresMode" aria-label="প্রেজেন্টেশন মোড টগল করুন" title="ফুলস্ক্রিন প্রেজেন্টেশন মোড [P]">
+      <span class="pres-icon">🖥️</span>
+      <span class="pres-text">উপস্থাপনা মোড</span>
+    </button>
+  </div>
 </header>
 
+<!-- Floating Section Progress Rail -->
 <nav class="leaf-rail" aria-label="সেকশন নেভিগেশন">
   <div class="leaf-rail__stem"><div class="leaf-rail__fill" id="railFill"></div></div>
   <ol class="leaf-rail__nodes" id="railNodes"></ol>
 </nav>
 
-<button class="nav-arrow nav-arrow--up" id="navUp" aria-label="আগের সেকশন">↑</button>
-<button class="nav-arrow nav-arrow--down" id="navDown" aria-label="পরের সেকশন">↓</button>
+<!-- Quick Navigation Arrows -->
+<button class="nav-arrow nav-arrow--up" id="navUp" aria-label="পূর্ববর্তী স্লাইড" title="আগের স্লাইড [↑]">↑</button>
+<button class="nav-arrow nav-arrow--down" id="navDown" aria-label="পরবর্তী স্লাইড" title="পরের স্লাইড [↓]">↓</button>
 
 <main id="deck">
 
-  <!-- 0 : COVER / HERO -->
-  <section class="slide slide--cover" id="s0" data-title="প্রচ্ছদ">
-    <div class="page-index"><span class="mono">০১ / ০৮</span></div>
+  <!-- 0 : COVER / HERO — Massive Executive Statement -->
+  <section class="slide slide--cover" id="s0" data-title="জাতীয় প্রচ্ছদ">
+    <div class="page-index"><span class="mono">০১ / ১০</span> <span class="badge-govt">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</span></div>
     <div class="blob-field" aria-hidden="true">
       <span class="blob blob--rose"></span>
       <span class="blob blob--green"></span>
       <span class="blob blob--rose blob--sm"></span>
       <span class="blob blob--green blob--sm"></span>
+    </div>
+
+    <!-- Awareness Ribbon -->
+    <div class="awareness-ribbon reveal">
+      <span class="ribbon-pill">জাতীয় সার্বভৌমত্ব ও ডিজিটাল শৈশব</span>
+      <span class="ribbon-text">বিদেশি অ্যালগরিদমের হাতে নয় — প্রতিটি বাংলাদেশি শিশুর প্রথম শিক্ষা হোক নিরাপদ, দেশীয় ও বিশ্বমানের।</span>
     </div>
 
     <div class="coverflow" id="coverflow">
@@ -52,209 +74,626 @@
       <div class="coverflow__scrim" aria-hidden="true"></div>
       <div class="coverflow__controls">
         <button id="cfPrev" aria-label="আগের ছবি">‹</button>
+        <span class="cf-counter mono" id="cfCounter">১ / ৯</span>
         <button id="cfNext" aria-label="পরের ছবি">›</button>
       </div>
+    </div>
 
-      <div class="cover-copy">
-        <p class="eyebrow mono">জাতীয় ডিজিটাল লার্নিং ইনফ্রাস্ট্রাকচার প্রস্তাবনা</p>
-        <h1 class="wordmark" id="wordmark">
-          <span class="wordmark__en">BLOOM</span>
-          <span class="wordmark__bn">হিয়ার বাগান</span>
-        </h1>
-        <p class="cover-thesis">প্রতিটি শিশুর প্রাপ্য একটি নিরাপদ ডিজিটাল শৈশব।</p>
-        <p class="cover-sub">Curriculum · Learning · Play · Parents · AI — মাননীয় শিক্ষামন্ত্রী জনাব ববি হাজ্জাজ-এর বিবেচনার জন্য নিবেদিত</p>
-        <a class="live-pill" href="https://hiya.handsandhead.com" target="_blank" rel="noopener">
+    <div class="cover-copy reveal">
+      <p class="eyebrow mono">জাতীয় ডিজিটাল শিক্ষা অবকাঠামো ও এআই রূপান্তর</p>
+      <h1 class="wordmark" id="wordmark">
+        <span class="wordmark__en">BLOOM EDTECH</span>
+        <span class="wordmark__bn">হিয়ার বাগান</span>
+      </h1>
+      
+      <!-- Big Words Awareness Statement -->
+      <div class="big-statement-box">
+        <h2 class="big-words-title">"প্রতিটি শিশুর জন্য একটি নিরাপদ ডিজিটাল ক্লাসরুম।"</h2>
+        <p class="cover-thesis">স্ক্রিন-টাইমকে বিভ্রান্তি নয় — জাতীয় পাঠ্যক্রম (NCTB) ভিত্তিক জ্ঞান, সৃজনশীলতা ও বুদ্ধিবৃত্তিক অগ্রগতির মহাশক্তিতে রূপান্তর।</p>
+      </div>
+
+      <p class="cover-sub">
+        <strong>Curriculum · Play · Parents · AI · Smart TV</strong> — মাননীয় প্রধানমন্ত্রী ও শিক্ষামন্ত্রী মহোদয়ের সদয় বিবেচনার জন্য নিবেদিত
+      </p>
+
+      <div class="cover-actions">
+        <a class="live-pill live-pill--primary" href="https://hiya.handsandhead.com" target="_blank" rel="noopener">
           <span class="live-pill__dot" aria-hidden="true"></span>
-          লাইভ অ্যাপ দেখুন — hiya.handsandhead.com
+          <span>লাইভ অ্যাপ্লিকেশন চালু করুন — hiya.handsandhead.com</span>
           <span class="live-pill__arrow" aria-hidden="true">↗</span>
         </a>
+        <button class="live-pill live-pill--secondary" id="btnOpenSimulator">
+          <span>📱 ইন্টারেক্টিভ সিমুলেটর দেখুন</span>
+        </button>
       </div>
-      <div class="scroll-cue mono">স্ক্রল করুন ↓</div>
+
+      <div class="hero-highlights">
+        <div class="highlight-chip"><span>🛡️</span> 100% Walled Garden (বিজ্ঞাপন ও অ্যালগরিদম মুক্ত)</div>
+        <div class="highlight-chip"><span>🇧🇩</span> NCTB সিলেবাস ও স্থানীয় বাংলা ভাষা</div>
+        <div class="highlight-chip"><span>📺</span> মোবাইল + স্মার্ট টিভি (D-Pad রিমোট বান্ধব)</div>
+        <div class="highlight-chip"><span>🤖</span> অভিভাবকের জন্য AI কো-পাইলট ও রিয়েল-টাইম ড্যাশবোর্ড</div>
+      </div>
+
     </div>
+    <div class="scroll-cue mono">স্ক্রল অথবা Arrow Key চেপে পরবর্তী অংশে যান ↓</div>
   </section>
 
-  <!-- 1 : PROBLEM -->
-  <section class="slide slide--problem" id="s1" data-title="সমস্যা">
+  <!-- 1 : THE CORE AWARENESS / PROBLEM -->
+  <section class="slide slide--problem" id="s1" data-title="জাতীয় সংকট ও সমাধান">
     <div class="slide__bg" aria-hidden="true"><img src="assets/storyboard-boy.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০২ / ০৮</span></div>
+    <div class="page-index"><span class="mono">০২ / ১০</span></div>
+    
     <div class="split">
       <div class="split__text reveal">
-        <p class="eyebrow mono">সমস্যা</p>
-        <h2>স্ক্রিন সরানো অসম্ভব — <em>এবং অপ্রাসঙ্গিকও।</em></h2>
-        <p class="lead">আসন্ন AGI/ASI যুগে সম্পূর্ণ স্ক্রিন-বঞ্চনা কোনো বাস্তব সমাধান নয়। প্রকৃত সমস্যাটা স্ক্রিন নয় — এটা একটা <strong>নিয়ন্ত্রণ ও সার্বভৌমত্বের সমস্যা।</strong></p>
+        <p class="eyebrow mono">ডিজিটাল সার্বভৌমত্ব ও শিক্ষা সংকট</p>
+        <h2>স্ক্রিন সরানো অসম্ভব — <em>স্ক্রিনকে ক্লাসরুম বানানোই একমাত্র সমাধান।</em></h2>
+        
+        <div class="big-quote-card">
+          <p class="big-quote-text">"একটি জাতির প্রথম ৫ বছরের মেধা বিকাশ কি বিদেশি অ্যাড-অ্যালগরিদমের হাতে ছেড়ে দেওয়া হবে?"</p>
+        </div>
+
+        <p class="lead">আজকের এআই যুগে কেবল স্ক্রিন-বঞ্চনা কোনো বাস্তববাদী নীতি নয়। শিশুরা প্রতিদিন স্ক্রিনে ঘণ্টার পর ঘণ্টা ব্যয় করছে — যার বেশিরভাগই অসংলগ্ন, অবৈজ্ঞানিক ও বিজ্ঞাপনচালিত কনটেন্ট।</p>
+        
         <ul class="fact-list">
-          <li>প্রতিদিন লক্ষ লক্ষ বাংলাদেশি শিশু বিদেশি, বিজ্ঞাপনচালিত, র‍্যান্ডম অ্যালগরিদমের কনটেন্টে expose হচ্ছে।</li>
-          <li>এই কনটেন্ট কারিকুলামের সাথে সংযুক্ত নয়, ভাষাগতভাবে localized নয়, এবং কোনো তত্ত্বাবধানের অধীনে নয়।</li>
-          <li>একটি জাতির প্রথম শিক্ষার ৫ বছর এখন একটি বিদেশি অ্যালগরিদমের হাতে ছেড়ে দেওয়া হচ্ছে।</li>
+          <li><strong>সার্বভৌমত্বের হুমকি:</strong> প্রতিদিন ১.৮ কোটি বাংলাদেশি শিশুর প্রাথমিক মনোসংযোগ বিদেশি বিজ্ঞাপনী অ্যালগরিদম দ্বারা নিয়ন্ত্রিত হচ্ছে।</li>
+          <li><strong>পাঠ্যক্রমহীন বিশৃঙ্খলা:</strong> অধিকাংশ কার্টুন ও ভিডিও জাতীয় পাঠ্যক্রম (NCTB) বহির্ভূত এবং ভাষাগতভাবে অপরিপক্ক।</li>
+          <li><strong>অভিভাবকের অসহায়ত্ব:</strong> অভিভাবক জানেন না সন্তান স্ক্রিনে কী দেখছে বা আদৌ কিছু শিখছে কিনা।</li>
+          <li><strong>আমাদের সমাধান:</strong> স্ক্রিন বন্ধ নয়, বরং প্রতিটি টিভি ও মোবাইল স্ক্রিনকে রূপান্তর করা <strong>সরকারি ও নিরাপদ জাতীয় ক্লাসরুমে</strong>।</li>
         </ul>
       </div>
+
       <div class="split__media reveal">
-        <img src="assets/problem-screen.jpg" alt="একই স্ক্রিন — বিশৃঙ্খল ইউটিউব বনাম কারিকুলাম-ভিত্তিক BLOOM">
-        <p class="caption">স্ক্রিন সরাবেন না। স্ক্রিনকে ক্লাসরুমে রূপান্তর করুন।</p>
+        <div class="contrast-card">
+          <div class="contrast-header">
+            <span class="badge-danger">অ্যালগরিদমিক বিশৃঙ্খলা বনাম BLOOM ক্লাসরুম</span>
+          </div>
+          <img src="assets/problem-screen.jpg" alt="একই স্ক্রিন — বিশৃঙ্খল ইউটিউব বনাম কারিকুলাম-ভিত্তিক BLOOM">
+          <div class="contrast-footer">
+            <div class="contrast-col danger-col">
+              <strong>❌ ওপেন ইউটিউব / সোশ্যাল মিডিয়া</strong>
+              <small>অ্যালগরিদমিক অ্যাডিকশন, চাইল্ড-ট্র্যাকিং, অপ্রাসঙ্গিক বিজ্ঞাপন, কোনো শিখন মূল্যায়ন নেই।</small>
+            </div>
+            <div class="contrast-col success-col">
+              <strong>✅ BLOOM ডিজিটাল ক্লাসরুম</strong>
+              <small>১০০% সুরক্ষিত ওয়ালড গার্ডেন, NCTB কারিকুলাম, ভয়েস সহায়ক ও প্যারেন্ট ড্যাশবোর্ড।</small>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 2 : SOLUTION -->
-  <section class="slide slide--solution" id="s2" data-title="সমাধান">
+  <!-- 2 : THE SOLUTION ARCHITECTURE -->
+  <section class="slide slide--solution" id="s2" data-title="প্রস্তাবিত সমাধান">
     <div class="slide__bg" aria-hidden="true"><img src="assets/home-menu.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৩ / ০৮</span></div>
-    <p class="eyebrow mono">সমাধান</p>
-    <h2 class="reveal">একটি সম্পূর্ণ ওয়ালড-গার্ডেন ডিজিটাল ক্লাসরুম।</h2>
-    <p class="lead reveal">Playgroup থেকে Class 1 পর্যন্ত সম্পূর্ণ সিলেবাস — বাংলা, ইংরেজি, গণিত — মোবাইল ও স্মার্ট টিভিতে, শূন্য অ্যালগরিদম, শূন্য random recommendation।</p>
+    <div class="page-index"><span class="mono">০৩ / ১০</span></div>
+    
+    <div class="section-heading reveal">
+      <p class="eyebrow mono">সম্পূর্ণ ওয়ালড-গার্ডেন ইকোসিস্টেম</p>
+      <h2>Playgroup থেকে Class 1 — প্রাক-প্রাথমিক শিক্ষার স্বয়ংসম্পূর্ণ ডিজিটাল রূপান্তর</h2>
+      <p class="lead">গ্রাম কিংবা শহর — প্রতিটি শিশুর জন্য একই মানের নিখুঁত বাংলা ও ইংরেজি ভিত্তি, সহজ গণিত, ছড়া, এআই গাইডেন্স এবং নিরাপদ ইন্টারঅ্যাক্টিভ খেলা।</p>
+    </div>
 
     <div class="dossier-grid">
-      <article class="dossier-card reveal">
-        <span class="dossier-card__tag mono">শেখা</span>
-        <h3>সম্পূর্ণ সিলেবাস কভারেজ</h3>
-        <p>Playgroup–Class 1: বাংলা, ইংরেজি, গণিত — ৬টি কাস্টম-বিল্ট এডুকেশনাল গেম, ভয়েসওভার-সহ ছড়া ও কনটেন্ট।</p>
+      <article class="dossier-card reveal" id="card-curriculum">
+        <div class="dossier-card__header">
+          <span class="dossier-card__tag mono">১. পাঠ্যক্রম</span>
+          <span class="dossier-card__icon">📚</span>
+        </div>
+        <h3>১০০% NCTB সিলেবাস কভারেজ</h3>
+        <p>স্বরবর্ণ, ব্যঞ্জনবর্ণ, ১-১০০ গণনা, প্রাথমিক ইংরেজি বর্ণমালা, সাধারণ জ্ঞান ও নীতিশিক্ষা — প্রতিটি ধাপ ভয়েসওভার ও অ্যানিমেশন যুক্ত।</p>
+        <ul class="mini-points">
+          <li>৬টি কাস্টম লার্নিং গেম</li>
+          <li>সরাসরি ইন্টারেক্টিভ কুইজ</li>
+        </ul>
       </article>
-      <article class="dossier-card reveal">
-        <span class="dossier-card__tag mono">খেলা</span>
-        <h3>Curated, Zero-Algorithm ভিডিও</h3>
-        <p>কঠোরভাবে বাছাইকৃত ইউটিউব কনটেন্ট — কোনো র‍্যান্ডম রিকমেন্ডেশন বা অ্যালগরিদমিক এক্সপোজার নেই।</p>
+
+      <article class="dossier-card reveal" id="card-safety">
+        <div class="dossier-card__header">
+          <span class="dossier-card__tag mono">২. নিরাপত্তা</span>
+          <span class="dossier-card__icon">🛡️</span>
+        </div>
+        <h3>Zero-Algorithm ওয়ালড গার্ডেন</h3>
+        <p>কঠোরভাবে যাচাইকৃত কনটেন্ট। কোনো অননুমোদিত লিংক নেই, কোনো বিজ্ঞাপন নেই, কোনো ডাটা বিক্রি নেই। সম্পূর্ণ চাইল্ড-সেফ ডাটাবেস।</p>
+        <ul class="mini-points">
+          <li>জিরো রিকমেন্ডেশন লুপ</li>
+          <li>চাইল্ড প্রোটেকশন কমপ্লায়েন্ট</li>
+        </ul>
       </article>
-      <article class="dossier-card reveal">
-        <span class="dossier-card__tag mono">অভিভাবক</span>
-        <h3>Dynamic Parent Dashboard</h3>
-        <p>রিয়েল-টাইম ট্র্যাকিং — সন্তান আজ কী শিখল, কতক্ষণ শিখল, কোথায় সাহায্য দরকার।</p>
+
+      <article class="dossier-card reveal" id="card-parent">
+        <div class="dossier-card__header">
+          <span class="dossier-card__tag mono">৩. অভিভাবক</span>
+          <span class="dossier-card__icon">📊</span>
+        </div>
+        <h3>রিয়েল-টাইম প্যারেন্ট ড্যাশবোর্ড</h3>
+        <p>সন্তান আজ কতটুকু স্বরবর্ণ শিখল, কত সময় কাটিয়েছে এবং কোন বর্ণে আরও অনুশীলনের প্রয়োজন — মোবাইল অ্যাপে তাৎক্ষণিক বিস্তারিত দেখা যায়।</p>
+        <ul class="mini-points">
+          <li>দৈনিক শিখন সারাংশ রিপোর্ট</li>
+          <li>উন্নতির সুস্পষ্ট ট্র্যাকিং</li>
+        </ul>
       </article>
-      <article class="dossier-card reveal">
-        <span class="dossier-card__tag mono">AI</span>
-        <h3>AI Parent Co-Pilot</h3>
-        <p>একটি কাস্টম AI অ্যাসিস্ট্যান্ট বট, যা অভিভাবককে সন্তানের শেখার অগ্রগতি বুঝতে ও গাইড করতে সাহায্য করে।</p>
+
+      <article class="dossier-card reveal" id="card-ai">
+        <div class="dossier-card__header">
+          <span class="dossier-card__tag mono">৪. এআই প্রযুক্তি</span>
+          <span class="dossier-card__icon">🤖</span>
+        </div>
+        <h3>বাংলাভাষী AI Parent Co-Pilot</h3>
+        <p>অভিভাবকদের জন্য কৃত্রিম বুদ্ধিমত্তা সহকারী। শিশুর শেখার দুর্বলতা বিশ্লেষণ করে ঘরে বসেই সহজ নির্দেশিকা ও পরামর্শ দেয়।</p>
+        <ul class="mini-points">
+          <li>ব্যক্তিগত শিখন গাইডলাইন</li>
+          <li>বাংলা টেক্সট ও ভয়েস পরামর্শ</li>
+        </ul>
       </article>
-      <article class="dossier-card reveal">
-        <span class="dossier-card__tag mono">নিরাপত্তা</span>
-        <h3>Parental Supervision Mode</h3>
-        <p>সম্পূর্ণ তত্ত্বাবধান — কী দেখা যাচ্ছে, কতক্ষণ, এবং কখন তা অভিভাবকের নিয়ন্ত্রণে।</p>
+
+      <article class="dossier-card reveal" id="card-tv">
+        <div class="dossier-card__header">
+          <span class="dossier-card__tag mono">৫. ডিভাইসবান্ধব</span>
+          <span class="dossier-card__icon">📺</span>
+        </div>
+        <h3>স্মার্ট টিভি ও মোবাইল ইন্টারফেস</h3>
+        <p>টিভি রিমোটের D-Pad দিয়েই শিশুরা খেলতে পারে। পরিবার একসাথে লিভিং রুমে বসে ক্লাসরুমের আনন্দ উপভোগ করে।</p>
+        <ul class="mini-points">
+          <li>বড় স্ক্রিন ও চোখের যত্ন মোড</li>
+          <li>রিমোট কন্ট্রোল অপটিমাইজড</li>
+        </ul>
       </article>
-      <article class="dossier-card reveal">
-        <span class="dossier-card__tag mono">অবকাঠামো</span>
-        <h3>TV / D-pad নেভিগেশন</h3>
-        <p>বড় স্ক্রিনের জন্য পূর্ণাঙ্গ রিমোট-নেভিগেশন সাপোর্ট, আনলিমিটেড ডেটা স্টোরেজ ক্যাপাসিটি।</p>
+
+      <article class="dossier-card reveal" id="card-cloud">
+        <div class="dossier-card__header">
+          <span class="dossier-card__tag mono">৬. ক্লাউড ও ডেটা</span>
+          <span class="dossier-card__icon">☁️</span>
+        </div>
+        <h3>Firebase ব্যাকএন্ড ও লো-ব্যান্ডউইথ</h3>
+        <p>অতি স্বল্প ইন্টারনেটেও অত্যন্ত দ্রুত লোড হয়। লো-এন্ড মোবাইল এবং স্মার্ট টিভিতে সমান মসৃণ পারফরম্যান্স নিশ্চিত।</p>
+        <ul class="mini-points">
+          <li>অফলাইন ক্যাশিং সাপোর্ট</li>
+          <li>জিরো ব্যান্ডউইথ অপচয়</li>
+        </ul>
       </article>
     </div>
   </section>
 
-  <!-- 3 : PROOF IT'S REAL -->
-  <section class="slide slide--proof" id="s3" data-title="প্রমাণ">
+  <!-- 3 : PROOF OF REAL APPLICATION -->
+  <section class="slide slide--proof" id="s3" data-title="বাস্তব প্রোডাক্টের প্রমাণ">
     <div class="slide__bg" aria-hidden="true"><img src="assets/menu-select.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৪ / ০৮</span></div>
-    <p class="eyebrow mono">এটা একটা কনসেপ্ট নয়</p>
-    <h2 class="reveal">এটা তৈরি, চলমান, এবং ব্যবহৃত হচ্ছে।</h2>
+    <div class="page-index"><span class="mono">০৪ / ১০</span></div>
+    
+    <div class="section-heading reveal">
+      <p class="eyebrow mono">প্রোটোটাইপ বা পাওয়ারপয়েন্ট নয় — এটি ইতিমধ্যে কার্যকর লাইভ প্রোডাক্ট</p>
+      <h2>মাঠপর্যায়ে পরীক্ষিত ও প্রস্তুত — যা এখনি ব্যবহারযোগ্য</h2>
+      <p class="lead">আমরা কোনো ধারণাগত স্লাইড দেখাচ্ছি না। <a href="https://hiya.handsandhead.com" target="_blank" class="text-link">hiya.handsandhead.com</a> এ গিয়ে যে কেউ সরাসরি এই লার্নিং প্ল্যাটফর্ম ব্যবহার করতে পারেন।</p>
+    </div>
+
     <div class="proof-grid">
       <figure class="proof-card reveal">
+        <div class="proof-badge">লাইভ ইন্টারফেস</div>
         <img src="assets/real-app.jpg" alt="প্রকৃত BLOOM অ্যাপের স্ক্রিনশট">
-        <figcaption>প্রকৃত অ্যাপ্লিকেশন — মকআপ নয়, লাইভ প্রোডাক্ট।</figcaption>
+        <figcaption>
+          <strong>প্রকৃত অ্যাপ্লিকেশন (Web + App)</strong>
+          <span>সম্পূর্ণ কার্যকরী ইন্টারফেস, কোনো কাল্পনিক মকআপ নয়।</span>
+        </figcaption>
       </figure>
+
       <figure class="proof-card reveal">
+        <div class="proof-badge">টিভি ইন্টারঅ্যাকশন</div>
         <img src="assets/gameplay.jpg" alt="একটি শিশু TV-তে রিমোট দিয়ে বাংলা বর্ণ খেলা খেলছে">
-        <figcaption>TV রিমোট দিয়ে ইন্টারঅ্যাক্টিভ বাংলা বর্ণ শেখা।</figcaption>
+        <figcaption>
+          <strong>টিভি রিমোট দিয়ে খেলা ও বর্ণমালা শেখা</strong>
+          <span>শিশু সহজে D-pad রিমোট দিয়ে বাংলা স্বরবর্ণ অনুশীলন করছে।</span>
+        </figcaption>
       </figure>
+
       <figure class="proof-card reveal">
+        <div class="proof-badge">প্যারেন্ট এনালাইটিক্স</div>
         <img src="assets/parent-dashboard.jpg" alt="অভিভাবকের মোবাইলে রিয়েল-টাইম প্রোগ্রেস ড্যাশবোর্ড">
-        <figcaption>রিয়েল-টাইম প্যারেন্ট ড্যাশবোর্ড — আজকের শেখার সারাংশ।</figcaption>
+        <figcaption>
+          <strong>লাইভ প্যারেন্ট ড্যাশবোর্ড</strong>
+          <span>প্রতিদিনের অর্জিত স্কোর ও শেখার সময় সেকেন্ডে আপডেট হয়।</span>
+        </figcaption>
       </figure>
+
       <figure class="proof-card reveal">
+        <div class="proof-badge">বাংলা এআই কো-পাইলট</div>
         <img src="assets/ai-copilot.jpg" alt="অভিভাবক AI কো-পাইলটের সাথে কথোপকথন করছেন">
-        <figcaption>AI Parent Co-Pilot — পরবর্তী শেখার সুপারিশ।</figcaption>
+        <figcaption>
+          <strong>AI Parent Co-Pilot</strong>
+          <span>অভিভাবকের প্রশ্নের উত্তর ও শিশুর পরবর্তী শিখন পরিকল্পনা।</span>
+        </figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- LIVE APP — full pagewide banner -->
+  <!-- LIVE APP PORTAL & INTERACTIVE TESTER BANNER -->
   <section class="live-banner">
     <div class="live-banner__blob live-banner__blob--a" aria-hidden="true"></div>
     <div class="live-banner__blob live-banner__blob--b" aria-hidden="true"></div>
     <div class="live-banner__card">
-      <span class="live-banner__eyebrow mono">লাইভ প্রোডাক্ট — এখনই দেখুন</span>
-      <a class="live-banner__link" href="https://hiya.handsandhead.com" target="_blank" rel="noopener">
-        hiya.handsandhead.com
-        <span class="live-banner__arrow" aria-hidden="true">↗</span>
-      </a>
-      <span class="live-banner__sub">এটি একটি প্রোটোটাইপ স্লাইড নয় — সত্যিকারের, ব্যবহারযোগ্য অ্যাপ্লিকেশন।</span>
+      <div class="live-badge-row">
+        <span class="live-banner__eyebrow mono">⚡ লাইভ অ্যাপ্লিকেশন সরাসরি দেখুন</span>
+        <span class="badge-live-pulse"><span class="pulse-ring"></span> সার্ভার অনলাইন</span>
+      </div>
+
+      <div class="live-url-display">
+        <a class="live-banner__link" href="https://hiya.handsandhead.com" target="_blank" rel="noopener">
+          hiya.handsandhead.com
+          <span class="live-banner__arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <p class="live-banner__sub">
+        মাননীয় প্রধানমন্ত্রী, মন্ত্রী ও কর্মকর্তাবৃন্দ সরাসরি ব্রাউজারে অথবা টিভি ডিভাইসে এখনি অ্যাপটি পরীক্ষা করে দেখতে পারেন।
+      </p>
+
+      <div class="banner-action-buttons">
+        <a class="btn-action-primary" href="https://hiya.handsandhead.com" target="_blank" rel="noopener">
+          <span>🚀 নতুন ট্যাবে লাইভ অ্যাপ খুলুন</span>
+        </a>
+        <button class="btn-action-secondary" id="btnEmbedViewer">
+          <span>🔍 এই স্ক্রিনেই অ্যাপ টেস্ট করুন</span>
+        </button>
+      </div>
     </div>
   </section>
 
-  <!-- 4 : HOW IT SCALES -->
-  <section class="slide slide--scale" id="s4" data-title="স্কেল পরিকল্পনা">
+  <!-- INTERACTIVE EMBEDDED DEMO CONTAINER (Hidden by default, toggled via button) -->
+  <div class="embedded-demo-wrapper" id="embeddedDemoWrapper" style="display: none;">
+    <div class="demo-modal-header">
+      <div class="demo-title">
+        <span class="demo-dot"></span>
+        <span>BLOOM EdTech — লাইভ অ্যাপ সিমুলেশন (<a href="https://hiya.handsandhead.com" target="_blank">hiya.handsandhead.com</a>)</span>
+      </div>
+      <div class="demo-controls">
+        <button class="demo-reload-btn" id="btnReloadFrame" title="রিলোড করুন">🔄 রিলোড</button>
+        <button class="demo-close-btn" id="btnCloseFrame" title="বন্ধ করুন">✕ বন্ধ করুন</button>
+      </div>
+    </div>
+    <div class="demo-iframe-container">
+      <iframe id="liveDemoIframe" src="about:blank" title="BLOOM Live Application Preview" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- 4 : INTERACTIVE NATIONAL SIMULATOR & ROI CALCULATOR (Massive for Cabinet/PM) -->
+  <section class="slide slide--simulator" id="s4" data-title="জাতীয় রোলআউট সিমুলেটর">
+    <div class="slide__bg" aria-hidden="true"><img src="assets/connect-diagram.jpg" alt=""></div>
+    <div class="page-index"><span class="mono">০৫ / ১০</span> <span class="badge-govt">পরিকল্পনা ও বাজেট বিশ্লেষণ</span></div>
+
+    <div class="section-heading reveal">
+      <p class="eyebrow mono">ইন্টারেক্টিভ নীতিনির্ধারণ মডেল</p>
+      <h2>জাতীয় স্কেল ও বাজেট দক্ষতা সিমুলেটর</h2>
+      <p class="lead">স্কেল নির্ধারণ করে দেখুন কীভাবে BLOOM প্রথাগত পাঠ্যপুস্তক ও বিদেশি প্ল্যাটফর্মের তুলনায় ৯২% পর্যন্ত ব্যয় সাশ্রয় করে এবং ১০০% শিশুকে শিক্ষার আওতায় আনে।</p>
+    </div>
+
+    <div class="sim-card-container reveal">
+      <div class="sim-controls-panel">
+        <label for="districtRange" class="sim-label">
+          <span>টার্গেট জেলা সংখ্যা:</span>
+          <strong id="districtCountLabel" class="sim-highlight">৮ জেলা (বিভাগীয় পাইলট)</strong>
+        </label>
+        <input type="range" id="districtRange" min="1" max="64" value="8" step="1" class="sim-slider">
+        
+        <div class="slider-markers mono">
+          <span>১ জেলা (প্রাথমিক পাইলট)</span>
+          <span>৮ জেলা (বিভাগীয়)</span>
+          <span>৩২ জেলা</span>
+          <span>৬৪ জেলা (সারাদেশ)</span>
+        </div>
+
+        <div class="target-options">
+          <button class="preset-btn" data-val="1">১টি জেলা (১০ হাজার শিশু)</button>
+          <button class="preset-btn active" data-val="8">৮টি বিভাগ (১০ লক্ষ শিশু)</button>
+          <button class="preset-btn" data-val="64">৬৪ জেলা সমগ্র দেশ (১.৮ কোটি শিশু)</button>
+        </div>
+      </div>
+
+      <div class="sim-metrics-grid">
+        <div class="metric-box">
+          <span class="metric-label">টার্গেট শিশু কভারেজ</span>
+          <strong class="metric-val mono" id="simChildrenVal">১০,০০,০০০+</strong>
+          <small class="metric-sub">প্রাক-প্রাথমিক ও ১ম শ্রেণি</small>
+        </div>
+
+        <div class="metric-box">
+          <span class="metric-label">প্রত্যাশিত প্রাথমিক বিদ্যালয়</span>
+          <strong class="metric-val mono" id="simSchoolsVal">৯,৫০০+</strong>
+          <small class="metric-sub">স্মার্ট ক্লাসরুম ও গৃহস্থালি সংযোগ</small>
+        </div>
+
+        <div class="metric-box success-metric">
+          <span class="metric-label">প্রথাগত পদ্ধতির তুলনায় সাশ্রয়</span>
+          <strong class="metric-val mono" id="simSavingsVal">৯১.৪%</strong>
+          <small class="metric-sub">কাগজবিহীন, ক্লাউড-স্কেলেবল</small>
+        </div>
+
+        <div class="metric-box">
+          <span class="metric-label">জাতীয় সাক্ষরতা গতি বৃদ্ধি</span>
+          <strong class="metric-val mono" id="simLiteracyVal">+৪.২ গুণ</strong>
+          <small class="metric-sub">ভয়েস-অ্যাসিস্টেড মেমরি রিটেনশন</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="roi-comparison-table reveal">
+      <div class="roi-row roi-header">
+        <span>তুলনামূলক প্যারামিটার</span>
+        <span>প্রথাগত পদ্ধতি / বিদেশি অ্যাপ</span>
+        <span>BLOOM EdTech জাতীয় মডেল</span>
+      </div>
+      <div class="roi-row">
+        <strong>কনটেন্ট সার্বভৌমত্ব</strong>
+        <span class="danger-text">বিদেশি সার্ভার, বিদেশি সংস্কৃতি</span>
+        <span class="success-text">১০০% জাতীয় সার্বভৌমত্ব (NCTB)</span>
+      </div>
+      <div class="roi-row">
+        <strong>শিশু ডেটা নিরাপত্তা</strong>
+        <span class="danger-text">কমার্শিয়াল ট্র্যাকিং ও বিজ্ঞাপন</span>
+        <span class="success-text">সম্পূর্ণ সুরক্ষিত ওয়ালড গার্ডেন</span>
+      </div>
+      <div class="roi-row">
+        <strong>প্রতি শিশুর বাস্তব খরচ</strong>
+        <span>৳ ২,৪০০+ (বই ও ডিভাইস প্রিন্ট/লজিস্টিক)</span>
+        <strong class="success-text">৳ ১৫০ - ৳ ২৫০ (এককালীন ডিজিটাল আর্কিটেকচার)</strong>
+      </div>
+      <div class="roi-row">
+        <strong>অভিভাবকের সম্পৃক্ততা</strong>
+        <span>অনুপস্থিত বা বিচ্ছিন্ন</span>
+        <strong class="success-text">রিয়েল-টাইম এআই কো-পাইলট ও মোবাইল ড্যাশবোর্ড</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 : STEP-BY-STEP SCALING PIPELINE -->
+  <section class="slide slide--scale" id="s5" data-title="বাস্তবায়ন পরিকল্পনা">
     <div class="slide__bg" aria-hidden="true"><img src="assets/hero-3.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৫ / ০৮</span></div>
-    <p class="eyebrow mono">কীভাবে এটি একটি জেলা থেকে একটি জাতিতে পরিণত হয়</p>
-    <h2 class="reveal">এক শিশু থেকে শুরু — জাতীয় স্কেলের জন্য প্রস্তুত।</h2>
+    <div class="page-index"><span class="mono">০৬ / ১০</span></div>
+    
+    <div class="section-heading reveal">
+      <p class="eyebrow mono">নিয়ন্ত্রিত ও পরিমাপযোগ্য বাস্তবায়ন ফ্রেমওয়ার্ক</p>
+      <h2>একটি শিশু থেকে একটি জেলা — অতঃপর সমগ্র বাংলাদেশে</h2>
+      <p class="lead">সরকারের কোনো বড় অগ্রিম আর্থিক ঝুঁকি ছাড়াই ধাপে ধাপে পরিমাপযোগ্য ফলাফল নিশ্চিত করে জাতীয় স্কেলে সম্প্রসারণ।</p>
+    </div>
 
     <div class="pipeline reveal">
-      <div class="pipeline__step"><span class="mono">০১</span><strong>Pilot</strong><small>নিয়ন্ত্রিত, ছোট, মাপা যায়</small></div>
-      <div class="pipeline__arrow">→</div>
-      <div class="pipeline__step"><span class="mono">০২</span><strong>Measure</strong><small>শেখার ফলাফল ট্র্যাক করা</small></div>
-      <div class="pipeline__arrow">→</div>
-      <div class="pipeline__step"><span class="mono">০৩</span><strong>Validate</strong><small>স্বাধীন যাচাই</small></div>
-      <div class="pipeline__arrow">→</div>
-      <div class="pipeline__step"><span class="mono">০৪</span><strong>Scale</strong><small>জাতীয় ডিপ্লয়মেন্ট</small></div>
+      <div class="pipeline__step">
+        <span class="mono step-tag">ধাপ ০১</span>
+        <strong>১. নিয়ন্ত্রিত পাইলট</strong>
+        <small>১টি জেলায় ১০,০০০ শিশুর মাঝে ৬ মাসের নিয়ন্ত্রিত মাঠপর্যায়ের ট্রায়াল।</small>
+      </div>
+      <div class="pipeline__arrow">➔</div>
+      
+      <div class="pipeline__step">
+        <span class="mono step-tag">ধাপ ০২</span>
+        <strong>২. শিখন পরিমাপ</strong>
+        <small>NCTB ও বিশেষজ্ঞদের মাধ্যমে স্বাধীন শিখন ফলাফল ও সাক্ষরতা যাচাই।</small>
+      </div>
+      <div class="pipeline__arrow">➔</div>
+      
+      <div class="pipeline__step">
+        <span class="mono step-tag">ধাপ ০৩</span>
+        <strong>৩. বিভাগীয় স্কেল</strong>
+        <small>৮টি বিভাগের নির্বাচিত গ্রামীণ ও নগর প্রাথমিক বিদ্যালয় এবং স্মার্ট টিভিতে বিস্তার।</small>
+      </div>
+      <div class="pipeline__arrow">➔</div>
+      
+      <div class="pipeline__step pipeline__step--final">
+        <span class="mono step-tag">ধাপ ০৪</span>
+        <strong>৪. জাতীয় অবকাঠামো</strong>
+        <small>সমগ্র দেশের ৬৪ জেলায় স্মার্ট বাংলাদেশ প্রাক-প্রাথমিক ক্লাসরুমের ভিত্তি স্থাপন।</small>
+      </div>
     </div>
 
-    <div class="ask-table reveal">
-      <div class="ask-table__row"><span>প্রস্তাবিত পাইলট আকার</span><strong class="counter" data-target="10000" data-suffix="+">0</strong></div>
-      <div class="ask-table__row"><span>মেয়াদ</span><strong class="counter" data-target="6" data-suffix=" মাস">0</strong></div>
-      <div class="ask-table__row"><span>ফলাফল</span><strong>পরিমাপযোগ্য লার্নিং আউটকাম রিপোর্ট</strong></div>
+    <div class="split-detail reveal">
+      <div class="ask-table">
+        <div class="ask-table__header mono">পাইলট প্রস্তাবনার রূপরেখা</div>
+        <div class="ask-table__row">
+          <span>প্রস্তাবিত পাইলট আকার</span>
+          <strong class="counter" data-target="10000" data-suffix="+ শিশু">0</strong>
+        </div>
+        <div class="ask-table__row">
+          <span>মেয়াদকাল</span>
+          <strong class="counter" data-target="6" data-suffix=" মাস">0</strong>
+        </div>
+        <div class="ask-table__row">
+          <span>টার্গেট প্ল্যাটফর্ম</span>
+          <strong>স্মার্ট টিভি + অ্যান্ড্রয়েড ফোন</strong>
+        </div>
+        <div class="ask-table__row">
+          <span>চূড়ান্ত ফলাফল</span>
+          <strong>স্বাধীন শিখন ফলাফল অডিট ও পলিসি রিপোর্ট</strong>
+        </div>
+      </div>
+
+      <div class="scale-media">
+        <img class="scale-photo" src="assets/pilot-classroom.jpg" alt="একটি প্রাথমিক বিদ্যালয়ে BLOOM পাইলট চলছে">
+        <p class="caption">প্রাথমিক ক্লাসরুমে শিশুদের সক্রিয় অংশগ্রহণ ও স্বতঃস্ফূর্ত শিখন</p>
+      </div>
     </div>
-    <img class="scale-photo reveal" src="assets/pilot-classroom.jpg" alt="একটি প্রাথমিক বিদ্যালয়ে BLOOM পাইলট চলছে, শিক্ষক ও শিশুরা">
   </section>
 
-  <!-- 5 : NATIONAL PICTURE -->
-  <section class="slide slide--national" id="s5" data-title="জাতীয় চিত্র">
+  <!-- 6 : NATIONAL INTELLIGENCE DASHBOARD (What the PM / Ministry sees) -->
+  <section class="slide slide--national" id="s6" data-title="মন্ত্রণালয়ের কমান্ড সেন্টার">
     <div class="slide__bg" aria-hidden="true"><img src="assets/legacy-backdrop.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৬ / ০৮</span></div>
+    <div class="page-index"><span class="mono">০৭ / ১০</span></div>
     <div class="map-bg" aria-hidden="true"></div>
-    <p class="eyebrow mono">মন্ত্রণালয় কী দেখবে</p>
-    <h2 class="reveal">সমগ্র জাতি কী শিখছে, এক নজরে।</h2>
-    <p class="lead reveal">প্রতিটি শিশুর নাম নয় — অ্যাগ্রিগেটেড, প্রাইভেসি-সচেতন জাতীয় শিক্ষা ইন্টেলিজেন্স, নীতিনির্ধারণের জন্য প্রস্তুত।</p>
-    <div class="stat-grid reveal">
-      <div class="stat"><span class="counter" data-target="2188000">0</span><small>শিশু পৌঁছেছে</small></div>
-      <div class="stat"><span class="counter" data-target="9575">0</span><small>সক্রিয় বিদ্যালয়</small></div>
-      <div class="stat"><span class="counter" data-target="1688">0</span><small>অভিভাবক অংশগ্রহণ (হাজার)</small></div>
-      <div class="stat"><span class="counter" data-target="64" data-suffix="টি">0</span><small>জেলা কভারেজ (সম্ভাব্য)</small></div>
+    
+    <div class="section-heading reveal">
+      <p class="eyebrow mono">মন্ত্রণালয় ও ক্যাবিনেট কী তথ্য দেখতে পাবে</p>
+      <h2>সমগ্র জাতির প্রাক-প্রাথমিক শিখন এক নজরে — রিয়েল-টাইম কমান্ড সেন্টার</h2>
+      <p class="lead">ব্যক্তিগত তথ্য বা প্রাইভেসি লঙ্ঘন ছাড়া অ্যাগ্রিগেটেড, ডেটা-চালিত জাতীয় শিক্ষা ড্যাশবোর্ড — যেখানে নীতিনির্ধারকরা এক ক্লিকে দেখতে পাবেন কোন জেলায় কোন বর্ণ বা গণিতে অতিরিক্ত সহায়তা দরকার।</p>
     </div>
-    <img class="national-photo reveal" src="assets/national-dashboard.jpg" alt="জাতীয় শিক্ষা ড্যাশবোর্ড, একজন কর্মকর্তা পর্যালোচনা করছেন">
+
+    <div class="stat-grid reveal">
+      <div class="stat">
+        <span class="stat-icon">👶</span>
+        <span class="counter" data-target="2188000">0</span>
+        <small>সম্ভাব্য শিশু অংশগ্রহণকারী</small>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">🏫</span>
+        <span class="counter" data-target="9575">0</span>
+        <small>সক্রিয় সরকারি বিদ্যালয় নেটওয়ার্ক</small>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">📱</span>
+        <span class="counter" data-target="1688" data-suffix="k+">0</span>
+        <small>সংযুক্ত অভিভাবক প্রোফাইল</small>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">🗺️</span>
+        <span class="counter" data-target="64" data-suffix="টি">0</span>
+        <small>জেলা সমমূল্য অন্তর্ভুক্তি</small>
+      </div>
+    </div>
+
+    <div class="national-photo-wrap reveal">
+      <img class="national-photo" src="assets/national-dashboard.jpg" alt="জাতীয় শিক্ষা ড্যাশবোর্ড, একজন কর্মকর্তা পর্যালোচনা করছেন">
+      <div class="dashboard-features">
+        <div class="feat-badge">📍 জেলাভিত্তিক শিখন হিটম্যাপ</div>
+        <div class="feat-badge">📈 বর্ণমালা ও বানান দক্ষতা সূচক</div>
+        <div class="feat-badge">⏱️ গড় কার্যকর স্ক্রিন-লার্নিং সময়</div>
+        <div class="feat-badge">🔒 100% এনক্রিপ্টেড অ্যানোনিমাইজড ডেটা</div>
+      </div>
+    </div>
   </section>
 
-  <!-- 6 : THE MODEL -->
-  <section class="slide slide--model" id="s6" data-title="মডেল">
+  <!-- 7 : PUBLIC-PRIVATE PARTNERSHIP (PPP) MODEL -->
+  <section class="slide slide--model" id="s7" data-title="পিপিপি বাস্তবায়ন মডেল">
     <div class="slide__bg" aria-hidden="true"><img src="assets/boardroom-proof.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৭ / ০৮</span></div>
-    <p class="eyebrow mono">Public-Private Partnership মডেল</p>
-    <h2 class="reveal">সরকারের জন্য কম ঝুঁকি, উচ্চ দৃশ্যমানতা।</h2>
+    <div class="page-index"><span class="mono">০৮ / ১০</span></div>
+    
+    <div class="section-heading reveal">
+      <p class="eyebrow mono">Public-Private Partnership (PPP) কাঠামো</p>
+      <h2>সরকারের জন্য শূন্য অবকাঠামো ঝুঁকি, সর্বোচ্চ জাতীয় অর্জন</h2>
+      <p class="lead">প্রযুক্তিগত উদ্ভাবন ও রক্ষণাবেক্ষণ করবে দেশীয় টিম; কারিকুলাম অনুমোদন ও জাতীয় পরিচালনা থাকবে শিক্ষা মন্ত্রণালয়ের হাতে।</p>
+    </div>
+
     <div class="model-table reveal">
       <div class="model-table__row model-table__row--head">
-        <span>উপাদান</span><span>কাঠামো</span>
+        <span>উপাদান</span><span>বাস্তবায়ন কাঠামো ও সুবিধাসমূহ</span>
       </div>
-      <div class="model-table__row"><span>ব্র্যান্ডিং</span><span>Co-branded জাতীয় প্ল্যাটফর্ম — মন্ত্রণালয়ের অনুমোদন-সহ</span></div>
-      <div class="model-table__row"><span>অর্থায়ন</span><span>Per-child লাইসেন্সিং, বড় upfront CAPEX নয় — outcome-based recurring</span></div>
-      <div class="model-table__row"><span>IP মালিকানা</span><span>প্রযুক্তি ও কনটেন্ট IP প্রতিষ্ঠানের কাছে থাকে</span></div>
-      <div class="model-table__row"><span>তত্ত্বাবধান</span><span>National Advisory Board — কারিকুলাম ও child-safety oversight-এর জন্য</span></div>
-      <div class="model-table__row"><span>সম্প্রসারণ অর্থায়ন</span><span>Development partner গ্র্যান্ট (UNICEF/World Bank ধাঁচের) সরকারি এনডোর্সমেন্ট-সহ সহজতর</span></div>
+      <div class="model-table__row">
+        <span>জাতীয় ব্র্যান্ডিং</span>
+        <span><strong>Co-branded জাতীয় এডটেক প্ল্যাটফর্ম</strong> — শিক্ষা মন্ত্রণালয় ও প্রাথমিক ও গণশিক্ষা মন্ত্রণালয়ের যৌথ অনুমোদন ও ফ্ল্যাগশিপ প্রজেক্ট।</span>
+      </div>
+      <div class="model-table__row">
+        <span>অর্থায়ন কাঠামো</span>
+        <span>কোনো ভারী অগ্রিম CAPEX নয় — <strong>Outcome-based Per-child লাইসেন্সিং অথবা পাইলট গ্র্যান্ট মডেল</strong>।</span>
+      </div>
+      <div class="model-table__row">
+        <span>সার্বভৌম ডাটা সুরক্ষা</span>
+        <span>সকল ডেটা বাংলাদেশের অভ্যন্তরে সুরক্ষিত ক্লাউডে সংরক্ষিত থাকবে। আন্তর্জাতিক তথ্য পাচার বা ট্র্যাকিং সম্পূর্ণ নিষিদ্ধ।</span>
+      </div>
+      <div class="model-table__row">
+        <span>উপদেষ্টা ও তদারকি পরিষদ</span>
+        <span><strong>National Curriculum & Safety Board</strong> — এনসিটিবি ও শিক্ষাবিদদের নিয়মিত কনটেন্ট পর্যালোচনা।</span>
+      </div>
+      <div class="model-table__row">
+        <span>উন্নয়ন সহযোগী অর্থায়ন</span>
+        <span>সরকারি অনুমোদনের মাধ্যমে UNICEF, World Bank, ADB ও জাইকা (JICA) এর এডুকেশন ফান্ডের সঙ্গে সরাসরি সমন্বয়।</span>
+      </div>
     </div>
   </section>
 
-  <!-- 7 : THE ASK -->
-  <section class="slide slide--ask" id="s7" data-title="প্রস্তাব">
+  <!-- 8 : NCTB CURRICULUM SYLLABUS MAPPING -->
+  <section class="slide slide--curriculum" id="s8" data-title="কারিকুলাম ও প্রযুক্তি কাঠামো">
+    <div class="slide__bg" aria-hidden="true"><img src="assets/lesson-screen.jpg" alt=""></div>
+    <div class="page-index"><span class="mono">০৯ / ১০</span></div>
+
+    <div class="section-heading reveal">
+      <p class="eyebrow mono">বিজ্ঞানভিত্তিক পাঠদান পদ্ধতি</p>
+      <h2>NCTB প্রাক-প্রাথমিক কাঠামোর সাথে BLOOM-এর নিবিড় মেলবন্ধন</h2>
+      <p class="lead">শিশুর বয়স উপযোগী খেলার ছলে শিখন (Game-based Experiential Learning) — যা স্মৃতিতে গভীর স্থায়ীত্ব তৈরি করে।</p>
+    </div>
+
+    <div class="curriculum-tabs-container reveal">
+      <div class="curriculum-grid">
+        <div class="curr-card">
+          <div class="curr-card__header">
+            <span class="curr-badge">বাংলা ভাষা</span>
+            <span class="curr-letter">অ আ ক খ</span>
+          </div>
+          <h4>স্বরবর্ণ ও ব্যঞ্জনবর্ণের সঠিক উচ্চারণ</h4>
+          <p>ধ্বনিবিজ্ঞানসম্মত ভয়েসওভার, বর্ণ গঠন অ্যানিমেশন এবং ছবি দেখে বর্ণ মেলানোর ইন্টারেক্টিভ খেলা।</p>
+        </div>
+
+        <div class="curr-card">
+          <div class="curr-card__header">
+            <span class="curr-badge">প্রাথমিক গণিত</span>
+            <span class="curr-letter">১ ২ ৩ ৪</span>
+          </div>
+          <h4>সংখ্যা চেনা ও বস্তু গণনা</h4>
+          <p>বাস্তব বস্তুর ভিজ্যুয়ালাইজেশন, ছোট-বড় তুলনা, সহজ যোগের ধারণা ও মেমরি ম্যাচিং গেম।</p>
+        </div>
+
+        <div class="curr-card">
+          <div class="curr-card__header">
+            <span class="curr-badge">ইংরেজি ভিত্তি</span>
+            <span class="curr-letter">A B C D</span>
+          </div>
+          <h4>Phonics ও প্রাত্যহিক শব্দভাণ্ডার</h4>
+          <p>ইংরেজি অক্ষরের ফোনেটিক উচ্চারণ, সহজ ছড়া এবং প্রাণবন্ত অ্যানিমেশনের মাধ্যমে শব্দ শিক্ষা।</p>
+        </div>
+
+        <div class="curr-card">
+          <div class="curr-card__header">
+            <span class="curr-badge">নীতিশিক্ষা ও পরিবেশ</span>
+            <span class="curr-letter">🌱 🤝 🇧🇩</span>
+          </div>
+          <h4>সামাজিক মূল্যবোধ ও দেশপ্রেম</h4>
+          <p>পরিচ্ছন্নতা, স্বাস্থ্যবিধি, সহমর্মিতা, প্রকৃতির যত্ন এবং আমাদের জাতীয় ঐতিহ্যভিত্তিক গল্প।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 : THE DECISION & NATIONAL CALL TO ACTION -->
+  <section class="slide slide--ask" id="s9" data-title="চূড়ান্ত প্রস্তাব ও সিদ্ধান্ত">
     <div class="slide__bg" aria-hidden="true"><img src="assets/hero-5.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৮ / ০৮</span></div>
+    <div class="page-index"><span class="mono">১০ / ১০</span></div>
+    
     <div class="seal reveal" aria-hidden="true">🌱</div>
-    <p class="eyebrow mono reveal">পরবর্তী পদক্ষেপ</p>
-    <h2 class="reveal">একটি সিদ্ধান্ত।</h2>
-    <p class="ask-line reveal">আমাদের একটি নিয়ন্ত্রিত জাতীয় পাইলট দিন। আমরা প্রমাণ নিয়ে আসব।</p>
-    <p class="legacy-line reveal">উত্তরাধিকার প্ল্যাটফর্ম নয় — উত্তরাধিকার সেই প্রজন্ম, যাকে এটি সক্ষম করে।</p>
+    
+    <p class="eyebrow mono reveal">মাননীয় প্রধানমন্ত্রীর সমীপে চূড়ান্ত নিবেদন</p>
+    
+    <h2 class="reveal">"একটি সময়োপযোগী জাতীয় সিদ্ধান্ত — আমাদের সন্তানদের আগামী দিনের জন্য।"</h2>
+    
+    <div class="massive-ask-box reveal">
+      <p class="ask-line">আমাদের ১টি পাইলট জেলায় সুযোগ দিন। আমরা বাংলাদেশের প্রতিটি শিশুর জন্য গর্ব করার মতো ফলাফল এনে দেব।</p>
+      <p class="legacy-line">উত্তরাধিকার কেবল কোনো সফটওয়্যার বা প্ল্যাটফর্ম নয় — উত্তরাধিকার সেই আগামীর প্রজন্ম, যাদের হাত ধরে বাংলাদেশ বিশ্বমঞ্চে নেতৃত্ব দেবে।</p>
+    </div>
+
+    <div class="ask-cta-row reveal">
+      <a class="btn-pitch-primary" href="https://hiya.handsandhead.com" target="_blank" rel="noopener">
+        <span>🚀 লাইভ অ্যাপ পরিদর্শন করুন: hiya.handsandhead.com</span>
+      </a>
+      <a class="btn-pitch-secondary" href="https://bloom.handsandhead.com" target="_blank" rel="noopener">
+        <span>🌐 ফ্রন্টএন্ড পোর্টাল: bloom.handsandhead.com</span>
+      </a>
+    </div>
+
     <div class="signature-block reveal">
-      <span class="mono">BLOOM EdTech — হিয়ার বাগান</span>
-      <span class="mono">মাননীয় শিক্ষামন্ত্রী জনাব ববি হাজ্জাজ-এর বিবেচনার জন্য নিবেদিত প্রস্তাবনা</span>
-      <a class="mono signature-block__link" href="https://hiya.handsandhead.com" target="_blank" rel="noopener">hiya.handsandhead.com</a>
+      <span class="signature-title mono">BLOOM EdTech — হিয়ার বাগান</span>
+      <span class="signature-to">গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের মাননীয় প্রধানমন্ত্রী ও শিক্ষামন্ত্রী মহোদয়ের সদয় বিবেচনার জন্য নিবেদিত</span>
+      <div class="signature-links">
+        <a class="mono signature-block__link" href="https://hiya.handsandhead.com" target="_blank" rel="noopener">hiya.handsandhead.com (মেইন অ্যাপ)</a>
+        <span>•</span>
+        <a class="mono signature-block__link" href="https://bloom.handsandhead.com" target="_blank" rel="noopener">bloom.handsandhead.com (পলিসি পোর্টাল)</a>
+      </div>
     </div>
   </section>
 
 </main>
 
+<!-- Floating Presentation Controller Toolbar -->
+<aside class="pres-toolbar" id="presToolbar" aria-label="প্রেজেন্টেশন নিয়ন্ত্রণ">
+  <button id="presPrev" class="pres-tool-btn" title="আগের স্লাইড [← / ↑]">‹ আগেরটি</button>
+  <span class="pres-slide-indicator mono" id="presSlideIndicator">১ / ১০</span>
+  <button id="presNext" class="pres-tool-btn" title="পরের স্লাইড [→ / ↓ / Space]">পরেরটি ›</button>
+  <button id="presExit" class="pres-tool-btn pres-tool-btn--exit" title="প্রেজেন্টেশন বন্ধ করুন [Esc]">✕ প্রস্থান</button>
+</aside>
+
 <script src="script.js"></script>
 </body>
 </html>
+

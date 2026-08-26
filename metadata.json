@@ -1,0 +1,8 @@
+{
+  "name": "BLOOM EdTech",
+  "description": "জাতীয় ডিজিটাল লার্নিং ইনফ্রাস্ট্রাকচার প্রস্তাবনা — BLOOM EdTech interactive deck & live presentation",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

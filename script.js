@@ -39,6 +39,10 @@
   function goTo(i){
     const n = items.length;
     current = ((i % n) + n) % n;
+    const cfCounter = document.getElementById("cfCounter");
+    if (cfCounter) {
+      cfCounter.textContent = `${(current + 1).toLocaleString("bn-BD")} / ${n.toLocaleString("bn-BD")}`;
+    }
     layout();
   }
 
@@ -51,11 +55,15 @@
     if (autoTimer) clearInterval(autoTimer);
   }
 
-  document.getElementById("cfNext").addEventListener("click", () => { goTo(current + 1); startAuto(); });
-  document.getElementById("cfPrev").addEventListener("click", () => { goTo(current - 1); startAuto(); });
+  const cfNext = document.getElementById("cfNext");
+  const cfPrev = document.getElementById("cfPrev");
+  if (cfNext) cfNext.addEventListener("click", () => { goTo(current + 1); startAuto(); });
+  if (cfPrev) cfPrev.addEventListener("click", () => { goTo(current - 1); startAuto(); });
   const coverflowEl = document.getElementById("coverflow");
-  coverflowEl.addEventListener("mouseenter", stopAuto);
-  coverflowEl.addEventListener("mouseleave", startAuto);
+  if (coverflowEl) {
+    coverflowEl.addEventListener("mouseenter", stopAuto);
+    coverflowEl.addEventListener("mouseleave", startAuto);
+  }
 
   layout();
   startAuto();
@@ -67,45 +75,192 @@
   const railNodes = document.getElementById("railNodes");
   const railFill = document.getElementById("railFill");
 
-  slides.forEach((slide, i) => {
-    const btn = document.createElement("li");
-    const inner = document.createElement("button");
-    inner.className = "leaf-rail__node";
-    inner.setAttribute("aria-label", slide.dataset.title || `সেকশন ${i+1}`);
-    inner.addEventListener("click", () => slide.scrollIntoView({ behavior: "smooth" }));
-    btn.appendChild(inner);
-    railNodes.appendChild(btn);
-  });
-  const railButtons = Array.from(railNodes.querySelectorAll(".leaf-rail__node"));
+  if (railNodes) {
+    slides.forEach((slide, i) => {
+      const btn = document.createElement("li");
+      const inner = document.createElement("button");
+      inner.className = "leaf-rail__node";
+      inner.setAttribute("aria-label", slide.dataset.title || `সেকশন ${i+1}`);
+      inner.addEventListener("click", () => slide.scrollIntoView({ behavior: "smooth" }));
+      btn.appendChild(inner);
+      railNodes.appendChild(btn);
+    });
+  }
+  const railButtons = railNodes ? Array.from(railNodes.querySelectorAll(".leaf-rail__node")) : [];
 
   let activeIndex = 0;
   function setActive(i){
     activeIndex = i;
     railButtons.forEach((b, idx) => b.classList.toggle("is-active", idx === i));
-    railFill.style.height = `${(i / (slides.length - 1)) * 100}%`;
+    if (railFill && slides.length > 1) {
+      railFill.style.height = `${(i / (slides.length - 1)) * 100}%`;
+    }
+    const presSlideIndicator = document.getElementById("presSlideIndicator");
+    if (presSlideIndicator) {
+      presSlideIndicator.textContent = `${(i + 1).toLocaleString("bn-BD")} / ${slides.length.toLocaleString("bn-BD")}`;
+    }
   }
   setActive(0);
 
   /* ============================================================
      3. UP / DOWN ARROW NAVIGATION
      ============================================================ */
-  document.getElementById("navDown").addEventListener("click", () => {
-    const next = Math.min(activeIndex + 1, slides.length - 1);
-    slides[next].scrollIntoView({ behavior: "smooth" });
-  });
-  document.getElementById("navUp").addEventListener("click", () => {
+  const navDown = document.getElementById("navDown");
+  const navUp = document.getElementById("navUp");
+  if (navDown) {
+    navDown.addEventListener("click", () => {
+      const next = Math.min(activeIndex + 1, slides.length - 1);
+      slides[next].scrollIntoView({ behavior: "smooth" });
+    });
+  }
+  if (navUp) {
+    navUp.addEventListener("click", () => {
+      const prev = Math.max(activeIndex - 1, 0);
+      slides[prev].scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
+  /* ============================================================
+     4. PRESENTATION MODE CONTROLS
+     ============================================================ */
+  const btnTogglePres = document.getElementById("btnTogglePres");
+  const presPrev = document.getElementById("presPrev");
+  const presNext = document.getElementById("presNext");
+  const presExit = document.getElementById("presExit");
+  let isPresMode = false;
+
+  function togglePresMode(enable) {
+    isPresMode = enable !== undefined ? enable : !isPresMode;
+    document.body.classList.toggle("deck-mode--pres", isPresMode);
+    if (isPresMode) {
+      if (document.documentElement.requestFullscreen && !document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      }
+      slides[activeIndex].scrollIntoView({ behavior: "smooth" });
+    } else {
+      if (document.exitFullscreen && document.fullscreenElement) {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+  }
+
+  if (btnTogglePres) btnTogglePres.addEventListener("click", () => togglePresMode(true));
+  if (presExit) presExit.addEventListener("click", () => togglePresMode(false));
+  if (presPrev) presPrev.addEventListener("click", () => {
     const prev = Math.max(activeIndex - 1, 0);
     slides[prev].scrollIntoView({ behavior: "smooth" });
   });
+  if (presNext) presNext.addEventListener("click", () => {
+    const next = Math.min(activeIndex + 1, slides.length - 1);
+    slides[next].scrollIntoView({ behavior: "smooth" });
+  });
+
   window.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowDown" || e.key === "PageDown"){
+    if (e.key === "Escape" && isPresMode) {
+      togglePresMode(false);
+      return;
+    }
+    if (e.key === "ArrowDown" || e.key === "PageDown" || (isPresMode && (e.key === " " || e.key === "ArrowRight"))){
       e.preventDefault();
       slides[Math.min(activeIndex + 1, slides.length - 1)].scrollIntoView({ behavior: "smooth" });
-    } else if (e.key === "ArrowUp" || e.key === "PageUp"){
+    } else if (e.key === "ArrowUp" || e.key === "PageUp" || (isPresMode && e.key === "ArrowLeft")){
       e.preventDefault();
       slides[Math.max(activeIndex - 1, 0)].scrollIntoView({ behavior: "smooth" });
     }
   });
+
+  /* ============================================================
+     5. EMBEDDED LIVE APP TESTER
+     ============================================================ */
+  const btnEmbedViewer = document.getElementById("btnEmbedViewer");
+  const heroEmbedBtn = document.getElementById("heroEmbedBtn");
+  const embeddedDemoWrapper = document.getElementById("embeddedDemoWrapper");
+  const liveDemoIframe = document.getElementById("liveDemoIframe");
+  const btnCloseFrame = document.getElementById("btnCloseFrame");
+  const btnReloadFrame = document.getElementById("btnReloadFrame");
+
+  function openEmbedDemo() {
+    if (embeddedDemoWrapper && liveDemoIframe) {
+      embeddedDemoWrapper.style.display = "block";
+      if (!liveDemoIframe.src || liveDemoIframe.src === "about:blank") {
+        liveDemoIframe.src = "https://hiya.handsandhead.com";
+      }
+      embeddedDemoWrapper.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  if (btnEmbedViewer) btnEmbedViewer.addEventListener("click", openEmbedDemo);
+  if (heroEmbedBtn) heroEmbedBtn.addEventListener("click", openEmbedDemo);
+  if (btnCloseFrame && embeddedDemoWrapper) {
+    btnCloseFrame.addEventListener("click", () => {
+      embeddedDemoWrapper.style.display = "none";
+    });
+  }
+  if (btnReloadFrame && liveDemoIframe) {
+    btnReloadFrame.addEventListener("click", () => {
+      liveDemoIframe.src = "https://hiya.handsandhead.com";
+    });
+  }
+
+  /* ============================================================
+     6. INTERACTIVE NATIONAL ROLLOUT SIMULATOR
+     ============================================================ */
+  const districtRange = document.getElementById("districtRange");
+  const districtCountLabel = document.getElementById("districtCountLabel");
+  const simChildrenVal = document.getElementById("simChildrenVal");
+  const simSchoolsVal = document.getElementById("simSchoolsVal");
+  const simSavingsVal = document.getElementById("simSavingsVal");
+  const simLiteracyVal = document.getElementById("simLiteracyVal");
+  const presetBtns = Array.from(document.querySelectorAll(".preset-btn"));
+
+  function updateSimulator(districtCount) {
+    const d = parseInt(districtCount, 10) || 1;
+    let label = `${d.toLocaleString("bn-BD")} জেলা`;
+    if (d === 1) label = "১ জেলা (প্রাথমিক পাইলট)";
+    else if (d === 8) label = "৮ জেলা (বিভাগীয় পাইলট)";
+    else if (d === 64) label = "৬৪ জেলা (সারাদেশে ১০০% কভারেজ)";
+
+    if (districtCountLabel) districtCountLabel.textContent = label;
+
+    // Calculations based on 64 districts having ~1.8 crore children and ~65,000 primary schools
+    const childrenPerDistrict = 280000;
+    const schoolsPerDistrict = 1015;
+
+    let totalChildren = d * childrenPerDistrict;
+    if (d === 1) totalChildren = 150000;
+    else if (d === 64) totalChildren = 18000000;
+
+    let totalSchools = Math.round(d * schoolsPerDistrict);
+    if (d === 64) totalSchools = 65000;
+
+    const savingsPercent = (88 + (d / 64) * 5.4).toFixed(1);
+    const speed = (3.5 + (d / 64) * 1.5).toFixed(1);
+
+    if (simChildrenVal) simChildrenVal.textContent = totalChildren >= 100000 ? `${(totalChildren / 100000).toLocaleString("bn-BD", { maximumFractionDigits: 1 })} লক্ষ+` : `${totalChildren.toLocaleString("bn-BD")}+`;
+    if (simSchoolsVal) simSchoolsVal.textContent = `${totalSchools.toLocaleString("bn-BD")}+`;
+    if (simSavingsVal) simSavingsVal.textContent = `${savingsPercent.toLocaleString("bn-BD")}%`;
+    if (simLiteracyVal) simLiteracyVal.textContent = `+${speed.toLocaleString("bn-BD")} গুণ`;
+
+    presetBtns.forEach(btn => {
+      btn.classList.toggle("active", parseInt(btn.dataset.val, 10) === d);
+    });
+  }
+
+  if (districtRange) {
+    districtRange.addEventListener("input", (e) => {
+      updateSimulator(e.target.value);
+    });
+  }
+
+  presetBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const val = parseInt(btn.dataset.val, 10);
+      if (districtRange) districtRange.value = val;
+      updateSimulator(val);
+    });
+  });
+
+  updateSimulator(8);
 
   /* ============================================================
      4. REVEAL ON SCROLL + ACTIVE SECTION TRACKING + COUNTERS
