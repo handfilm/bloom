@@ -345,8 +345,54 @@
   document.querySelectorAll(".counter").forEach((el) => revealObserver.observe(el));
 
   /* ============================================================
-     5. COVER WORDMARK LOAD-IN
+     5. COVER WORDMARK LOAD-IN & RURAL MEDIA SWITCHER
      ============================================================ */
+  window.switchRuralMedia = function(mode) {
+    const pane1 = document.getElementById("ruralPanePhoto1");
+    const pane2 = document.getElementById("ruralPanePhoto2");
+    const paneVideo = document.getElementById("ruralPaneVideo");
+    
+    const tab1 = document.getElementById("tabMediaPhoto1");
+    const tab2 = document.getElementById("tabMediaPhoto2");
+    const tabVideo = document.getElementById("tabMediaVideo");
+
+    const thumb1 = document.getElementById("thumbRural1");
+    const thumb2 = document.getElementById("thumbRural2");
+    const thumb3 = document.getElementById("thumbRural3");
+
+    const videoEl = document.getElementById("ruralDemoVideo");
+
+    // Clear active states
+    [pane1, pane2, paneVideo].forEach(p => p && p.classList.remove("active"));
+    [tab1, tab2, tabVideo].forEach(t => t && t.classList.remove("active"));
+    [thumb1, thumb2, thumb3].forEach(th => th && th.classList.remove("active"));
+
+    if (mode === "photo2") {
+      if (pane2) pane2.classList.add("active");
+      if (tab2) tab2.classList.add("active");
+      if (thumb2) thumb2.classList.add("active");
+      if (videoEl) { try { videoEl.pause(); } catch(e) {} }
+    } else if (mode === "video") {
+      if (paneVideo) paneVideo.classList.add("active");
+      if (tabVideo) tabVideo.classList.add("active");
+      if (thumb3) thumb3.classList.add("active");
+      if (videoEl) {
+        try {
+          const playPromise = videoEl.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => { /* Autoplay restricted, user can click play */ });
+          }
+        } catch(e) {}
+      }
+    } else {
+      // Default to photo1
+      if (pane1) pane1.classList.add("active");
+      if (tab1) tab1.classList.add("active");
+      if (thumb1) thumb1.classList.add("active");
+      if (videoEl) { try { videoEl.pause(); } catch(e) {} }
+    }
+  };
+
   window.addEventListener("load", () => {
     const wordmark = document.getElementById("wordmark");
     if (!prefersReduced && wordmark){

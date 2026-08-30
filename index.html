@@ -45,7 +45,7 @@
 
   <!-- 0 : COVER / HERO — Massive Executive Statement -->
   <section class="slide slide--cover" id="s0" data-title="জাতীয় প্রচ্ছদ">
-    <div class="page-index"><span class="mono">০১ / ১০</span> <span class="badge-govt">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</span></div>
+    <div class="page-index"><span class="mono">০১ / ১১</span> <span class="badge-govt">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</span></div>
     <div class="blob-field" aria-hidden="true">
       <span class="blob blob--rose"></span>
       <span class="blob blob--green"></span>
@@ -138,7 +138,7 @@
   <!-- 1 : THE CORE AWARENESS / PROBLEM -->
   <section class="slide slide--problem" id="s1" data-title="জাতীয় সংকট ও সমাধান">
     <div class="slide__bg" aria-hidden="true"><img src="assets/storyboard-boy.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০২ / ১০</span></div>
+    <div class="page-index"><span class="mono">০২ / ১১</span></div>
     
     <div class="split">
       <div class="split__text reveal">
@@ -180,10 +180,109 @@
     </div>
   </section>
 
+  <!-- 1.5 : RURAL HARDWARE DEPLOYMENT STRATEGY -->
+  <section class="slide slide--rural-hardware" id="s1_5" data-title="গ্রামীণ বাস্তবায়ন কৌশল">
+    <div class="slide__bg" aria-hidden="true"><img src="assets/pilot-classroom.jpg" alt=""></div>
+    <div class="page-index"><span class="mono">০৩ / ১১</span> <span class="badge-govt">হার্ডওয়্যার ও স্থায়িত্ব কৌশল</span></div>
+    
+    <div class="split">
+      <div class="split__text reveal">
+        <p class="eyebrow mono">গ্রামীণ বাস্তবায়ন কৌশল</p>
+        <h2>টিভি ঝুঁকিপূর্ণ, বিকল্প ব্যবস্থা প্রস্তুত — <em>প্রজেক্টর ও স্টিকেই ক্লাসরুম চলবে।</em></h2>
+        
+        <div class="big-quote-card">
+          <p class="big-quote-text">"একটি প্রত্যন্ত বিদ্যালয়ে একটি টিভি নষ্ট হলে তা প্রতিস্থাপন করতে যে খরচ ও সময় লাগে, তা কি শিক্ষার ধারাবাহিকতা ব্যাহত করার মতো ঝুঁকি?"</p>
+        </div>
+
+        <p class="lead">গ্রামীণ প্রাথমিক বিদ্যালয়ে স্থায়ী বড় টিভি বসানো অত্যন্ত ঝুঁকিপূর্ণ। তাই BLOOM-এর ক্লাসরুম মডেল তৈরি করা হয়েছে সাশ্রয়ী, নিরাপদ ও দ্রুত প্রতিস্থাপনযোগ্য প্রজেক্টর + অ্যান্ড্রয়েড স্টিক কাঠামোর ওপর ভিত্তি করে।</p>
+        
+        <ul class="fact-list">
+          <li><strong>টিভির ঝুঁকি:</strong> বিদ্যুৎ বিভ্রাট, আর্দ্রতা, ভাঙচুর ও চুরির কারণে টিভি নষ্ট বা ক্ষতিগ্রস্ত হওয়ার আশঙ্কা বেশি।</li>
+          <li><strong>প্রতিস্থাপন খরচ:</strong> একটি টিভি প্রতিস্থাপনের খরচ প্রজেক্টর/স্টিকের তুলনায় কয়েকগুণ বেশি।</li>
+          <li><strong>সহজ সমাধান:</strong> প্রজেক্টর ও অ্যান্ড্রয়েড স্টিক সহজে খুলে নিরাপদে সংরক্ষণ করা যায়, ক্লাস শেষে সরিয়ে রাখা সম্ভব।</li>
+          <li><strong>বিনা বাড়তি উন্নয়নে:</strong> BLOOM-এর "উপস্থাপনা মোড" (TV/10-Foot UI) এই সেটআপে সরাসরি চলবে — HDMI-তে স্টিক লাগালেই প্রস্তুত।</li>
+        </ul>
+      </div>
+
+      <div class="split__media reveal">
+        <div class="contrast-card contrast-card--hardware">
+          <div class="contrast-header">
+            <div class="contrast-header-top">
+              <span class="badge-danger">প্রচলিত টিভি বনাম সিকিউর প্রজেক্টর + স্টিক</span>
+              <div class="media-tabs" role="tablist">
+                <button type="button" class="media-tab-btn active" id="tabMediaPhoto1" onclick="switchRuralMedia('photo1')">📸 ছবি ১</button>
+                <button type="button" class="media-tab-btn" id="tabMediaPhoto2" onclick="switchRuralMedia('photo2')">📋 ছবি ২ (গাইড)</button>
+                <button type="button" class="media-tab-btn" id="tabMediaVideo" onclick="switchRuralMedia('video')">🎥 ভিডিও ডেমো</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Media Stage -->
+          <div class="media-stage-container">
+            <!-- Media 1: Photo 1 (Classroom + Ceiling Security Box Inset) -->
+            <div class="media-stage-pane active" id="ruralPanePhoto1">
+              <div class="media-main-wrapper">
+                <img src="assets/rural-classroom-setup.jpg?v=20260830v4" alt="গ্রামীণ বিদ্যালয়ে সিলিং মাউন্টেড প্রটেক্টিভ কেসিং ও অ্যান্ড্রয়েড স্টিক ক্লাসরুম">
+              </div>
+              <p class="media-caption"><strong>ছবি ১:</strong> সিলিং মাউন্টেড প্রটেক্টিভ স্টিল কেসিং, অ্যান্ড্রয়েড স্টিক ও BLOOM স্মার্ট ক্লাসরুম সেটআপ</p>
+            </div>
+
+            <!-- Media 2: Photo 2 (4-Quadrant Rural Hardware Implementation Guide) -->
+            <div class="media-stage-pane" id="ruralPanePhoto2">
+              <div class="media-main-wrapper">
+                <img src="assets/rural-implementation-guide.jpg?v=20260830v4" alt="রুরাল ইমপ্লিমেন্টেশন ৪-ধাপের হার্ডওয়্যার ব্লুপ্রিন্ট গাইড">
+              </div>
+              <p class="media-caption"><strong>ছবি ২ (গাইড):</strong> ১. টিভির ঝুঁকি ২. প্রজেক্টর সমাধান ৩. অ্যান্ড্রয়েড স্টিক প্লাগ-ইন ৪. মাইল্ড স্টিল সিকিউরিটি কেসিং</p>
+            </div>
+
+            <!-- Media 3: Video (Projector & Android Stick Classroom Demo) -->
+            <div class="media-stage-pane" id="ruralPaneVideo">
+              <div class="media-main-wrapper video-wrapper">
+                <video id="ruralDemoVideo" controls preload="auto" poster="assets/rural-classroom-video-poster.jpg?v=20260830v4" class="lightweight-video" playsinline webkit-playsinline>
+                  <source src="assets/rural-classroom-video.mp4?v=20260830v4" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">
+                  <source src="assets/rural-classroom-video.webm?v=20260830v4" type="video/webm; codecs='vp8, vorbis'">
+                  <p class="video-fallback-text">ভিডিও লোড হচ্ছে... <a href="assets/rural-classroom-video.mp4" target="_blank">সরাসরি চালু করুন</a></p>
+                </video>
+              </div>
+              <p class="media-caption"><strong>ভিডিও ডেমো:</strong> সিলিং প্রজেক্টর চালুকরণ ও BLOOM বাংলা বর্ণমালা ইন্টারঅ্যাক্টিভ ক্লাস পরিচালনা</p>
+            </div>
+          </div>
+
+          <!-- 3-Item Quick Selector Thumbnails -->
+          <div class="media-thumb-strip">
+            <button type="button" class="media-thumb-card active" id="thumbRural1" onclick="switchRuralMedia('photo1')">
+              <img src="assets/rural-classroom-setup.jpg?v=20260830v4" alt="ছবি ১ থাম্বনেইল">
+              <span>📸 ছবি ১: ক্লাসরুম ও কেসিং</span>
+            </button>
+            <button type="button" class="media-thumb-card" id="thumbRural2" onclick="switchRuralMedia('photo2')">
+              <img src="assets/rural-implementation-guide.jpg?v=20260830v4" alt="ছবি ২ থাম্বনেইল">
+              <span>📋 ছবি ২: বাস্তবায়ন গাইড</span>
+            </button>
+            <button type="button" class="media-thumb-card" id="thumbRural3" onclick="switchRuralMedia('video')">
+              <img src="assets/rural-classroom-video-poster.jpg?v=20260830v4" alt="ভিডিও থাম্বনেইল">
+              <span>🎥 ভিডিও: লাইভ ডেমো</span>
+            </button>
+          </div>
+
+          <div class="contrast-footer">
+            <div class="contrast-col danger-col">
+              <strong>❌ প্রচলিত টিভি সেটআপ</strong>
+              <small>উচ্চ ঝুঁকি, ব্যয়বহুল প্রতিস্থাপন, আর্দ্রতা ও চুরির ভয়, স্থায়ী মাউন্টিং প্রয়োজন।</small>
+            </div>
+            <div class="contrast-col success-col">
+              <strong>✅ প্রজেক্টর + স্টিক সেটআপ</strong>
+              <small>কম খরচ, সহজে সরানো ও সংরক্ষণযোগ্য, ১০০% পোর্টাবল ও দ্রুত ইনস্টলযোগ্য।</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 2 : THE SOLUTION ARCHITECTURE -->
   <section class="slide slide--solution" id="s2" data-title="প্রস্তাবিত সমাধান">
     <div class="slide__bg" aria-hidden="true"><img src="assets/home-menu.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৩ / ১০</span></div>
+    <div class="page-index"><span class="mono">০৪ / ১১</span></div>
     
     <div class="section-heading reveal">
       <p class="eyebrow mono">সম্পূর্ণ ওয়ালড-গার্ডেন ইকোসিস্টেম</p>
@@ -275,7 +374,7 @@
   <!-- 3 : PROOF OF REAL APPLICATION -->
   <section class="slide slide--proof" id="s3" data-title="বাস্তব প্রোডাক্টের প্রমাণ">
     <div class="slide__bg" aria-hidden="true"><img src="assets/menu-select.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৪ / ১০</span></div>
+    <div class="page-index"><span class="mono">০৫ / ১১</span></div>
     
     <div class="section-heading reveal">
       <p class="eyebrow mono">প্রোটোটাইপ বা পাওয়ারপয়েন্ট নয় — এটি ইতিমধ্যে কার্যকর লাইভ প্রোডাক্ট</p>
@@ -374,7 +473,7 @@
   <!-- 4 : BUILDING THE DIGITAL FOUNDATION / 3-COLUMN FEATURE GRID -->
   <section class="slide slide--foundation" id="s4" data-title="ডিজিটাল শিক্ষার ভিত্তি">
     <div class="slide__bg" aria-hidden="true"><img src="assets/connect-diagram.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৫ / ১০</span> <span class="badge-govt">জাতীয় লক্ষ্য ও ভিত্তি</span></div>
+    <div class="page-index"><span class="mono">০৬ / ১১</span> <span class="badge-govt">জাতীয় লক্ষ্য ও ভিত্তি</span></div>
 
     <div class="section-heading reveal">
       <p class="eyebrow mono">Building the Digital Foundation for the Next Generation</p>
@@ -546,7 +645,7 @@
   <!-- 5 : STEP-BY-STEP SCALING PIPELINE -->
   <section class="slide slide--scale" id="s5" data-title="বাস্তবায়ন পরিকল্পনা">
     <div class="slide__bg" aria-hidden="true"><img src="assets/hero-3.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৬ / ১০</span></div>
+    <div class="page-index"><span class="mono">০৭ / ১১</span></div>
     
     <div class="section-heading reveal">
       <p class="eyebrow mono">নিয়ন্ত্রিত ও পরিমাপযোগ্য বাস্তবায়ন ফ্রেমওয়ার্ক</p>
@@ -614,7 +713,7 @@
   <!-- 6 : NATIONAL INTELLIGENCE DASHBOARD (What the PM / Ministry sees) -->
   <section class="slide slide--national" id="s6" data-title="মন্ত্রণালয়ের কমান্ড সেন্টার">
     <div class="slide__bg" aria-hidden="true"><img src="assets/legacy-backdrop.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৭ / ১০</span></div>
+    <div class="page-index"><span class="mono">০৮ / ১১</span></div>
     <div class="map-bg" aria-hidden="true"></div>
     
     <div class="section-heading reveal">
@@ -660,7 +759,7 @@
   <!-- 7 : PUBLIC-PRIVATE PARTNERSHIP (PPP) MODEL -->
   <section class="slide slide--model" id="s7" data-title="পিপিপি বাস্তবায়ন মডেল">
     <div class="slide__bg" aria-hidden="true"><img src="assets/boardroom-proof.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৮ / ১০</span></div>
+    <div class="page-index"><span class="mono">০৯ / ১১</span></div>
     
     <div class="section-heading reveal">
       <p class="eyebrow mono">Public-Private Partnership (PPP) কাঠামো</p>
@@ -698,7 +797,7 @@
   <!-- 8 : NCTB CURRICULUM SYLLABUS MAPPING -->
   <section class="slide slide--curriculum" id="s8" data-title="কারিকুলাম ও প্রযুক্তি কাঠামো">
     <div class="slide__bg" aria-hidden="true"><img src="assets/lesson-screen.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৯ / ১০</span></div>
+    <div class="page-index"><span class="mono">১০ / ১১</span></div>
 
     <div class="section-heading reveal">
       <p class="eyebrow mono">বিজ্ঞানভিত্তিক পাঠদান পদ্ধতি</p>
@@ -750,7 +849,7 @@
   <!-- 9 : THE DECISION & NATIONAL CALL TO ACTION -->
   <section class="slide slide--ask" id="s9" data-title="চূড়ান্ত প্রস্তাব ও সিদ্ধান্ত">
     <div class="slide__bg" aria-hidden="true"><img src="assets/hero-5.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">১০ / ১০</span></div>
+    <div class="page-index"><span class="mono">১১ / ১১</span></div>
     
     <div class="seal reveal" aria-hidden="true">🌱</div>
     
@@ -788,7 +887,7 @@
 <!-- Floating Presentation Controller Toolbar -->
 <aside class="pres-toolbar" id="presToolbar" aria-label="প্রেজেন্টেশন নিয়ন্ত্রণ">
   <button id="presPrev" class="pres-tool-btn" title="আগের স্লাইড [← / ↑]">‹ আগেরটি</button>
-  <span class="pres-slide-indicator mono" id="presSlideIndicator">১ / ১০</span>
+  <span class="pres-slide-indicator mono" id="presSlideIndicator">১ / ১১</span>
   <button id="presNext" class="pres-tool-btn" title="পরের স্লাইড [→ / ↓ / Space]">পরেরটি ›</button>
   <button id="presExit" class="pres-tool-btn pres-tool-btn--exit" title="প্রেজেন্টেশন বন্ধ করুন [Esc]">✕ প্রস্থান</button>
 </aside>

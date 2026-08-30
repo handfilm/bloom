@@ -947,10 +947,164 @@ main#deck { scroll-snap-type: y proximity; }
   box-shadow: var(--shadow-lg), var(--glass-highlight);
 }
 
+.contrast-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.media-tabs {
+  display: inline-flex;
+  gap: 4px;
+  background: rgba(15, 23, 42, 0.8);
+  padding: 3px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border-subtle);
+}
+
+.media-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.media-tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.media-tab-btn.active {
+  background: var(--surface-card);
+  color: var(--neon-emerald-light);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  box-shadow: var(--shadow-sm);
+}
+
+.media-stage-container {
+  position: relative;
+  width: 100%;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.media-stage-pane {
+  display: none;
+  animation: fadeInMedia 0.3s ease-out;
+}
+
+.media-stage-pane.active {
+  display: block;
+}
+
+@keyframes fadeInMedia {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.media-main-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: #020617;
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-md);
+}
+
+.media-main-wrapper img,
+.media-main-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media-thumb-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.media-thumb-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-md);
+  padding: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--duration-fast) ease;
+}
+
+.media-thumb-card:hover {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+.media-thumb-card.active {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: var(--neon-emerald);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.25);
+}
+
+.media-thumb-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.media-thumb-card span {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.media-thumb-card.active span {
+  color: var(--neon-emerald-light);
+}
+
 .contrast-card img {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   border-radius: var(--r-md);
   display: block;
+  border: 1px solid var(--border-glass);
+}
+
+.video-fallback-text {
+  padding: 16px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.video-fallback-text a {
+  color: var(--neon-cyan);
+  text-decoration: underline;
 }
 
 .contrast-header { margin-bottom: 12px; }
@@ -991,6 +1145,62 @@ main#deck { scroll-snap-type: y proximity; }
   border: 1px solid rgba(16, 185, 129, 0.25);
 }
 .success-col strong { display: block; color: var(--neon-emerald-light); margin-bottom: 4px; }
+
+.media-caption {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  margin-bottom: 2px;
+  line-height: 1.4;
+}
+
+.media-video-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.video-item-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: #020617;
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-sm);
+}
+
+.lightweight-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--r-md);
+  background: #020617;
+}
+
+.video-caption {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .media-video-row {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ============================================================
    2. SOLUTION DOSSIER GRID
