@@ -61,7 +61,24 @@
 
     <div class="coverflow" id="coverflow">
       <div class="coverflow__track" id="coverflowTrack">
-        <figure class="coverflow__item"><img src="assets/hero-1.jpg" alt="শহর ও গ্রামের পরিবার একসাথে BLOOM দেখছে"></figure>
+        <figure class="coverflow__item coverflow__item--main" id="heroSlide1">
+          <img src="assets/hero-1.jpg?v=20260830" alt="BLOOM EdTech - হিয়ার বাগান: Every Child Deserves a Safe Digital Childhood">
+          <div class="hero-triptych-caption">
+            <div class="triptych-title">BLOOM EdTech - হিয়ার বাগান</div>
+            <div class="triptych-sub">Every Child Deserves a Safe Digital Childhood.</div>
+            <div class="triptych-tags">
+              <span>Curriculum</span>
+              <span class="dot">•</span>
+              <span>Learning</span>
+              <span class="dot">•</span>
+              <span>Play</span>
+              <span class="dot">•</span>
+              <span>Parents</span>
+              <span class="dot">•</span>
+              <span>AI</span>
+            </div>
+          </div>
+        </figure>
         <figure class="coverflow__item"><img src="assets/lesson-screen.jpg" alt="বাস্তব BLOOM পাঠ স্ক্রিন — স্বরবর্ণ 'অ' শেখা"></figure>
         <figure class="coverflow__item"><img src="assets/hero-3.jpg" alt="Pilot থেকে জাতীয় স্কেলে BLOOM-এর পথচিত্র"></figure>
         <figure class="coverflow__item"><img src="assets/home-menu.jpg" alt="BLOOM হোম মেনু — Letter Learning, Counting, Storybook"></figure>
@@ -354,18 +371,101 @@
     </div>
   </div>
 
-  <!-- 4 : INTERACTIVE NATIONAL SIMULATOR & ROI CALCULATOR (Massive for Cabinet/PM) -->
-  <section class="slide slide--simulator" id="s4" data-title="জাতীয় রোলআউট সিমুলেটর">
+  <!-- 4 : BUILDING THE DIGITAL FOUNDATION / 3-COLUMN FEATURE GRID -->
+  <section class="slide slide--foundation" id="s4" data-title="ডিজিটাল শিক্ষার ভিত্তি">
     <div class="slide__bg" aria-hidden="true"><img src="assets/connect-diagram.jpg" alt=""></div>
-    <div class="page-index"><span class="mono">০৫ / ১০</span> <span class="badge-govt">পরিকল্পনা ও বাজেট বিশ্লেষণ</span></div>
+    <div class="page-index"><span class="mono">০৫ / ১০</span> <span class="badge-govt">জাতীয় লক্ষ্য ও ভিত্তি</span></div>
 
     <div class="section-heading reveal">
-      <p class="eyebrow mono">ইন্টারেক্টিভ নীতিনির্ধারণ মডেল</p>
-      <h2>জাতীয় স্কেল ও বাজেট দক্ষতা সিমুলেটর</h2>
-      <p class="lead">স্কেল নির্ধারণ করে দেখুন কীভাবে BLOOM প্রথাগত পাঠ্যপুস্তক ও বিদেশি প্ল্যাটফর্মের তুলনায় ৯২% পর্যন্ত ব্যয় সাশ্রয় করে এবং ১০০% শিশুকে শিক্ষার আওতায় আনে।</p>
+      <p class="eyebrow mono">Building the Digital Foundation for the Next Generation</p>
+      <h2>আগামী প্রজন্মের জন্য নিরাপদ ডিজিটাল শিক্ষার ভিত্তি</h2>
+      <p class="lead">Scalability, Empowerment, and National Infrastructure — তিনটি সুসংহত স্তম্ভের ওপর প্রতিষ্ঠিত জাতীয় এডটেক ইকোসিস্টেম।</p>
     </div>
 
-    <div class="sim-card-container reveal">
+    <!-- 3-Column Feature Grid -->
+    <div class="foundation-grid reveal" id="foundationGrid">
+      <!-- Card 1: Focus on Scale -->
+      <article class="foundation-card" id="card-scale">
+        <div class="foundation-card__header">
+          <div class="foundation-card__icon-wrap">
+            <span class="foundation-card__icon">🌐</span>
+          </div>
+          <span class="foundation-pill mono">Focus on Scale • স্কেলিং</span>
+        </div>
+        <div class="foundation-card__titles">
+          <h3 class="foundation-title-bn">সর্বজনীন ডিজিটাল ক্লাসরুম</h3>
+          <h4 class="foundation-title-en mono">Hyper-Scalable Classrooms</h4>
+        </div>
+        <p class="foundation-text-bn">
+          বিদ্যমান প্রযুক্তির সঠিক ব্যবহারের মাধ্যমে দেশের প্রতিটি শিশুর কাছে মানসম্মত ও আনন্দদায়ক শিক্ষা পৌঁছে দেওয়া।
+        </p>
+        <p class="foundation-text-en">
+          Expanding access to premium interactive learning for every child, using existing digital infrastructure.
+        </p>
+        <div class="foundation-card__footer">
+          <span class="foundation-stat-chip">🚀 জিরো নতুন হার্ডওয়্যার খরচ</span>
+          <span class="foundation-stat-chip">📺 টিভি ও মোবাইল সামঞ্জস্য</span>
+        </div>
+      </article>
+
+      <!-- Card 2: Focus on Ecosystem -->
+      <article class="foundation-card foundation-card--featured" id="card-ecosystem">
+        <div class="foundation-card__header">
+          <div class="foundation-card__icon-wrap">
+            <span class="foundation-card__icon">🤝</span>
+          </div>
+          <span class="foundation-pill mono">Focus on Ecosystem • ক্ষমতায়ন</span>
+        </div>
+        <div class="foundation-card__titles">
+          <h3 class="foundation-title-bn">শিক্ষা ব্যবস্থার আধুনিকায়ন</h3>
+          <h4 class="foundation-title-en mono">Empowering Educators</h4>
+        </div>
+        <p class="foundation-text-bn">
+          একটি স্মার্ট ডিজিটাল প্ল্যাটফর্ম যা প্রচলিত শিক্ষাকে আরও সহজ করে এবং শিশু, অভিভাবক ও শিক্ষককে এক সুতোয় গাঁথে।
+        </p>
+        <p class="foundation-text-en">
+          A smart digital co-pilot that enhances traditional schooling and connects the child, parent, and teacher.
+        </p>
+        <div class="foundation-card__footer">
+          <span class="foundation-stat-chip">🧑‍🏫 শিক্ষক-সহায়ক টুলকিট</span>
+          <span class="foundation-stat-chip">🤖 AI কো-পাইলট গাইডেন্স</span>
+        </div>
+      </article>
+
+      <!-- Card 3: Focus on National Vision -->
+      <article class="foundation-card" id="card-national">
+        <div class="foundation-card__header">
+          <div class="foundation-card__icon-wrap">
+            <span class="foundation-card__icon">🏛️</span>
+          </div>
+          <span class="foundation-pill mono">National Vision • জাতীয় লক্ষ্য</span>
+        </div>
+        <div class="foundation-card__titles">
+          <h3 class="foundation-title-bn">জাতীয় ডিজিটাল ইনফ্রাস্ট্রাকচার</h3>
+          <h4 class="foundation-title-en mono">National Infrastructure</h4>
+        </div>
+        <p class="foundation-text-bn">
+          দেশব্যাপী বাস্তবায়নের উপযোগী একটি নিরাপদ এবং কারিকুলাম-ভিত্তিক ডিজিটাল শিক্ষার আধুনিক ইকোসিস্টেম।
+        </p>
+        <p class="foundation-text-en">
+          Building a safe, curriculum-aligned digital foundation ready for nationwide deployment and measurable impact.
+        </p>
+        <div class="foundation-card__footer">
+          <span class="foundation-stat-chip">🇧🇩 ১০০% NCTB ভিত্তিক</span>
+          <span class="foundation-stat-chip">📊 লাইভ গভর্মেন্ট অ্যানালিটিক্স</span>
+        </div>
+      </article>
+    </div>
+
+    <!-- Interactive Simulator Toggle & Tool -->
+    <div class="foundation-sim-toggle-row reveal">
+      <button class="btn-toggle-sim" id="btnToggleSimBox">
+        <span>📊 জাতীয় রোলআউট সিমুলেটর ও বাজেট কার্যকারিতা ক্যালকুলেটর</span>
+        <span id="simToggleArrow">▼</span>
+      </button>
+    </div>
+
+    <div class="sim-card-container reveal" id="simulatorBox">
       <div class="sim-controls-panel">
         <label for="districtRange" class="sim-label">
           <span>টার্গেট জেলা সংখ্যা:</span>
@@ -412,33 +512,33 @@
           <small class="metric-sub">ভয়েস-অ্যাসিস্টেড মেমরি রিটেনশন</small>
         </div>
       </div>
-    </div>
 
-    <div class="roi-comparison-table reveal">
-      <div class="roi-row roi-header">
-        <span>তুলনামূলক প্যারামিটার</span>
-        <span>প্রথাগত পদ্ধতি / বিদেশি অ্যাপ</span>
-        <span>BLOOM EdTech জাতীয় মডেল</span>
-      </div>
-      <div class="roi-row">
-        <strong>কনটেন্ট সার্বভৌমত্ব</strong>
-        <span class="danger-text">বিদেশি সার্ভার, বিদেশি সংস্কৃতি</span>
-        <span class="success-text">১০০% জাতীয় সার্বভৌমত্ব (NCTB)</span>
-      </div>
-      <div class="roi-row">
-        <strong>শিশু ডেটা নিরাপত্তা</strong>
-        <span class="danger-text">কমার্শিয়াল ট্র্যাকিং ও বিজ্ঞাপন</span>
-        <span class="success-text">সম্পূর্ণ সুরক্ষিত ওয়ালড গার্ডেন</span>
-      </div>
-      <div class="roi-row">
-        <strong>প্রতি শিশুর বাস্তব খরচ</strong>
-        <span>৳ ২,৪০০+ (বই ও ডিভাইস প্রিন্ট/লজিস্টিক)</span>
-        <strong class="success-text">৳ ১৫০ - ৳ ২৫০ (এককালীন ডিজিটাল আর্কিটেকচার)</strong>
-      </div>
-      <div class="roi-row">
-        <strong>অভিভাবকের সম্পৃক্ততা</strong>
-        <span>অনুপস্থিত বা বিচ্ছিন্ন</span>
-        <strong class="success-text">রিয়েল-টাইম এআই কো-পাইলট ও মোবাইল ড্যাশবোর্ড</strong>
+      <div class="roi-comparison-table" style="margin-top: 24px;">
+        <div class="roi-row roi-header">
+          <span>তুলনামূলক প্যারামিটার</span>
+          <span>প্রথাগত পদ্ধতি / বিদেশি অ্যাপ</span>
+          <span>BLOOM EdTech জাতীয় মডেল</span>
+        </div>
+        <div class="roi-row">
+          <strong>কনটেন্ট সার্বভৌমত্ব</strong>
+          <span class="danger-text">বিদেশি সার্ভার, বিদেশি সংস্কৃতি</span>
+          <span class="success-text">১০০% জাতীয় সার্বভৌমত্ব (NCTB)</span>
+        </div>
+        <div class="roi-row">
+          <strong>শিশু ডেটা নিরাপত্তা</strong>
+          <span class="danger-text">কমার্শিয়াল ট্র্যাকিং ও বিজ্ঞাপন</span>
+          <span class="success-text">সম্পূর্ণ সুরক্ষিত ওয়ালড গার্ডেন</span>
+        </div>
+        <div class="roi-row">
+          <strong>প্রতি শিশুর বাস্তব খরচ</strong>
+          <span>৳ ২,৪০০+ (বই ও ডিভাইস প্রিন্ট/লজিস্টিক)</span>
+          <strong class="success-text">৳ ১৫০ - ৳ ২৫০ (এককালীন ডিজিটাল আর্কিটেকচার)</strong>
+        </div>
+        <div class="roi-row">
+          <strong>অভিভাবকের সম্পৃক্ততা</strong>
+          <span>অনুপস্থিত বা বিচ্ছিন্ন</span>
+          <strong class="success-text">রিয়েল-টাইম এআই কো-পাইলট ও মোবাইল ড্যাশবোর্ড</strong>
+        </div>
       </div>
     </div>
   </section>

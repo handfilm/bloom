@@ -32,7 +32,8 @@
       item.style.opacity = opacity;
       item.style.zIndex = String(100 - abs);
       item.style.filter = abs === 0 ? "brightness(1)" : "brightness(0.65)";
-      item.style.pointerEvents = abs === 0 ? "auto" : "none";
+      item.style.pointerEvents = abs <= 2 ? "auto" : "none";
+      item.style.cursor = abs === 0 ? "default" : "pointer";
     });
   }
 
@@ -54,6 +55,13 @@
   function stopAuto(){
     if (autoTimer) clearInterval(autoTimer);
   }
+
+  items.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      goTo(index);
+      startAuto();
+    });
+  });
 
   const cfNext = document.getElementById("cfNext");
   const cfPrev = document.getElementById("cfPrev");
@@ -212,6 +220,30 @@
   const simSavingsVal = document.getElementById("simSavingsVal");
   const simLiteracyVal = document.getElementById("simLiteracyVal");
   const presetBtns = Array.from(document.querySelectorAll(".preset-btn"));
+  const btnToggleSimBox = document.getElementById("btnToggleSimBox");
+  const simulatorBox = document.getElementById("simulatorBox");
+  const simToggleArrow = document.getElementById("simToggleArrow");
+  const btnOpenSimulator = document.getElementById("btnOpenSimulator");
+
+  if (btnOpenSimulator) {
+    btnOpenSimulator.addEventListener("click", () => {
+      const s4 = document.getElementById("s4");
+      if (s4) s4.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
+  if (btnToggleSimBox && simulatorBox) {
+    btnToggleSimBox.addEventListener("click", () => {
+      const isHidden = window.getComputedStyle(simulatorBox).display === "none";
+      simulatorBox.style.display = isHidden ? "block" : "none";
+      if (simToggleArrow) {
+        simToggleArrow.textContent = isHidden ? "▲" : "▼";
+      }
+      if (isHidden) {
+        simulatorBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+  }
 
   function updateSimulator(districtCount) {
     const d = parseInt(districtCount, 10) || 1;
