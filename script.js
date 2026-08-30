@@ -131,7 +131,7 @@
   /* ============================================================
      4. PRESENTATION MODE CONTROLS
      ============================================================ */
-  const btnTogglePres = document.getElementById("btnTogglePres");
+  const btnTogglePres = document.getElementById("togglePresMode") || document.getElementById("btnTogglePres");
   const presPrev = document.getElementById("presPrev");
   const presNext = document.getElementById("presNext");
   const presExit = document.getElementById("presExit");
@@ -152,7 +152,7 @@
     }
   }
 
-  if (btnTogglePres) btnTogglePres.addEventListener("click", () => togglePresMode(true));
+  if (btnTogglePres) btnTogglePres.addEventListener("click", () => togglePresMode());
   if (presExit) presExit.addEventListener("click", () => togglePresMode(false));
   if (presPrev) presPrev.addEventListener("click", () => {
     const prev = Math.max(activeIndex - 1, 0);
@@ -168,6 +168,11 @@
       togglePresMode(false);
       return;
     }
+    if ((e.key === "p" || e.key === "P") && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) {
+      e.preventDefault();
+      togglePresMode();
+      return;
+    }
     if (e.key === "ArrowDown" || e.key === "PageDown" || (isPresMode && (e.key === " " || e.key === "ArrowRight"))){
       e.preventDefault();
       slides[Math.min(activeIndex + 1, slides.length - 1)].scrollIntoView({ behavior: "smooth" });
@@ -176,6 +181,42 @@
       slides[Math.max(activeIndex - 1, 0)].scrollIntoView({ behavior: "smooth" });
     }
   });
+
+  /* Touch swipe navigation support for mobile / tablet devices */
+  let touchStartY = 0;
+  let touchStartX = 0;
+  window.addEventListener("touchstart", (e) => {
+    touchStartY = e.touches[0].clientY;
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  window.addEventListener("touchend", (e) => {
+    const deltaY = e.changedTouches[0].clientY - touchStartY;
+    const deltaX = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(deltaY) > 60 && Math.abs(deltaY) > Math.abs(deltaX) * 1.5) {
+      if (deltaY < 0 && activeIndex < slides.length - 1) {
+        slides[activeIndex + 1].scrollIntoView({ behavior: "smooth" });
+      } else if (deltaY > 0 && activeIndex > 0) {
+        slides[activeIndex - 1].scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, { passive: true });
+
+  if (coverflowEl) {
+    let cfTouchX = 0;
+    coverflowEl.addEventListener("touchstart", (e) => {
+      cfTouchX = e.touches[0].clientX;
+      stopAuto();
+    }, { passive: true });
+    coverflowEl.addEventListener("touchend", (e) => {
+      const diff = e.changedTouches[0].clientX - cfTouchX;
+      if (Math.abs(diff) > 40) {
+        if (diff < 0) goTo(current + 1);
+        else goTo(current - 1);
+      }
+      startAuto();
+    }, { passive: true });
+  }
 
   /* ============================================================
      5. EMBEDDED LIVE APP TESTER
